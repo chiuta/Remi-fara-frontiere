@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Atlas Rummy: 20 variante jucabile (Remi Românesc, Gin Rummy, Canasta, Okey, Mahjong, Phase 10 și altele). Piese mari, 100% offline. Atlantykron · Centrul StrING.">
+<title>Remi fără frontiere — 20 variante jucabile · Atlantykron</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%230d0a08'/><text x='50%25' y='54%25' font-size='42' text-anchor='middle' dominant-baseline='central' fill='%23c8832a'>🃏</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Lora:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Lora:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap');
+:root{
+  --bg:#0d0a08;--bg2:#141008;--bg3:#1c1508;--bg4:#221a0a;--bg5:#2a2010;
+  --gold:#c8832a;--gold2:#e8c87a;--red:#8b1a1a;--red2:#c0392b;
+  --cream:#e8e0d0;--muted:#7a6e60;--dim:#403830;
+  --card:#f5ede0;--cborder:rgba(200,131,42,.35);
+  --r:6px;--r2:10px;--tr:.18s ease;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--cream);font-family:'Lora',Georgia,serif;min-height:100vh;font-size:15px}
+
+/* HDR */
+.hdr{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--cborder);background:var(--bg2)}
+.hdr-logo{font-size:24px}
+.hdr-title{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;color:var(--gold2);line-height:1.1}
+.hdr-sub{font-size:10px;color:var(--muted);letter-spacing:1.2px;text-transform:uppercase;font-family:'JetBrains Mono',monospace}
+.hdr-badge{margin-left:auto;background:var(--bg3);border:1px solid var(--cborder);border-radius:20px;padding:3px 10px;font-size:10px;color:var(--gold);font-family:'JetBrains Mono',monospace;white-space:nowrap}
+
+/* TABS */
+.tabs{display:flex;gap:1px;padding:8px 10px 0;border-bottom:1px solid var(--cborder);background:var(--bg2);overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{background:none;border:none;cursor:pointer;color:var(--muted);font-family:'Cormorant Garamond',serif;font-size:14px;padding:6px 14px;border-bottom:2px solid transparent;white-space:nowrap;transition:color var(--tr)}
+.tab:hover{color:var(--cream)}
+.tab.active{color:var(--gold2);border-bottom-color:var(--gold)}
+.panel{display:none;padding:8px 8px 20px}
+.panel.active{display:block}
+
+/* ATLAS */
+.atlas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px;margin-top:6px}
+.vcard{background:var(--bg3);border:1px solid var(--cborder);border-radius:var(--r2);padding:12px;cursor:pointer;transition:border-color var(--tr),transform var(--tr)}
+.vcard:hover{border-color:var(--gold);transform:translateY(-2px)}
+.vcard-head{display:flex;gap:10px;align-items:flex-start;margin-bottom:6px}
+.vcard-icon{font-size:24px;flex-shrink:0}
+.vcard-title{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;color:var(--gold2);line-height:1.2}
+.vcard-origin{font-size:10px;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-top:2px}
+.vcard-desc{font-size:12px;color:var(--cream);line-height:1.5;margin-bottom:6px}
+.vcard-tags{display:flex;flex-wrap:wrap;gap:3px}
+.vtag{background:var(--bg4);border:1px solid var(--dim);border-radius:10px;padding:1px 7px;font-size:10px;color:var(--muted);font-family:'JetBrains Mono',monospace}
+.vtag.play{border-color:var(--gold);color:var(--gold)}
+.vcard-btn{display:inline-flex;align-items:center;gap:5px;background:var(--gold);color:var(--bg);border:none;border-radius:16px;padding:4px 12px;font-size:11px;font-family:'JetBrains Mono',monospace;cursor:pointer;margin-top:8px;transition:background var(--tr)}
+.vcard-btn:hover{background:var(--gold2)}
+
+/* GAME SELECTOR */
+.game-sel{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:7px;padding:8px 0}
+.gsel-btn{background:var(--bg3);border:1px solid var(--cborder);border-radius:var(--r2);padding:12px 8px;text-align:center;cursor:pointer;transition:all var(--tr)}
+.gsel-btn:hover{border-color:var(--gold);background:var(--bg4);transform:translateY(-1px)}
+.gsel-icon{font-size:26px}
+.gsel-name{font-family:'Cormorant Garamond',serif;font-size:12px;color:var(--cream);margin-top:4px;line-height:1.2}
+.gsel-type{font-size:10px;color:var(--muted);margin-top:2px;font-family:'JetBrains Mono',monospace}
+
+/* BOARD */
+.board-hdr{display:flex;align-items:center;gap:10px;padding:8px 0;margin-bottom:6px}
+.board-hdr .back-btn{background:none;border:1px solid var(--cborder);color:var(--muted);border-radius:16px;padding:4px 12px;font-size:11px;cursor:pointer;font-family:'JetBrains Mono',monospace;transition:all var(--tr)}
+.board-hdr .back-btn:hover{border-color:var(--gold);color:var(--gold)}
+.board-hdr .game-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--gold2)}
+.board-hdr .contract-badge{background:var(--bg4);border:1px solid var(--cborder);border-radius:12px;padding:2px 10px;font-size:10px;color:var(--gold);font-family:'JetBrains Mono',monospace}
+.hidden{display:none!important}
+.board{background:var(--bg3);border:1px solid var(--cborder);border-radius:var(--r2);overflow:hidden;margin-bottom:6px}
+.zone{padding:8px 10px;border-bottom:1px solid rgba(200,131,42,.1)}
+.zone:last-child{border-bottom:none}
+.zlabel{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-family:'JetBrains Mono',monospace;margin-bottom:5px;display:flex;align-items:center;gap:6px}
+.zcount{background:var(--bg4);border:1px solid var(--dim);border-radius:8px;padding:1px 6px;font-size:9px}
+.zentree{color:var(--gold);border-color:var(--gold);background:rgba(200,131,42,.1)}
+
+/* SCORES */
+.scores{display:flex;gap:6px;margin-bottom:6px}
+.sbox{flex:1;background:var(--bg3);border:1px solid var(--cborder);border-radius:var(--r);padding:7px 10px;text-align:center;transition:border-color var(--tr)}
+.sbox.active{border-color:var(--gold)}
+.sname{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-family:'JetBrains Mono',monospace}
+.sval{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:var(--gold2);line-height:1.1}
+.ssub{font-size:9px;color:var(--muted);margin-top:1px}
+
+/* STATUSBAR */
+.statusbar{background:var(--bg2);border:1px solid var(--cborder);border-radius:var(--r);padding:7px 12px;font-size:13px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.phase{font-family:'JetBrains Mono',monospace;font-size:10px;background:var(--bg3);padding:2px 8px;border-radius:10px;color:var(--gold);white-space:nowrap}
+.smsg{flex:1;min-width:0;font-size:12px}
+.ssc{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);white-space:nowrap}
+
+/* ═══════════════════════════════
+   CĂRȚI MARI (76×108 px)
+═══════════════════════════════ */
+.card{
+  display:inline-flex;flex-direction:column;justify-content:space-between;
+  width:76px;height:108px;
+  background:var(--card);border:1px solid #c8a87a;border-radius:var(--r);
+  padding:4px 5px;cursor:pointer;user-select:none;flex-shrink:0;position:relative;
+  transition:transform var(--tr),box-shadow var(--tr),outline .1s;
+  animation:dealIn .2s ease both;
+}
+@keyframes dealIn{from{opacity:0;transform:translateY(-14px) scale(.85)}to{opacity:1;transform:none}}
+.card:hover:not(.back){transform:translateY(-7px)}
+.card.sel{outline:3px solid var(--gold);transform:translateY(-14px);box-shadow:0 8px 22px rgba(200,131,42,.5)}
+.card.red .cr,.card.red .cs{color:#b91c1c}
+.card.black .cr,.card.black .cs{color:#1a1a2e}
+.card.joker{background:linear-gradient(135deg,#1a0a2e,#2a0a1e);border-color:#7a3a9a}
+.card.joker .cr{color:var(--gold2);font-size:10px}
+.card.joker .cs{color:var(--gold);font-size:22px}
+.card.back{background:linear-gradient(135deg,#1c1508,#2a2010);cursor:default;border-color:var(--cborder)}
+.card.back::after{content:'';position:absolute;inset:4px;border:1px solid var(--cborder);border-radius:3px;background:repeating-linear-gradient(45deg,transparent,transparent 4px,rgba(200,131,42,.07) 4px,rgba(200,131,42,.07) 5px)}
+.cr{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:600;line-height:1}
+.cs{font-size:28px;text-align:center;line-height:1;margin:auto 0}
+.crb{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:600;line-height:1;transform:rotate(180deg);text-align:right}
+
+/* ═══════════════════════════════
+   PLĂCUȚE MARI (64×90px)
+═══════════════════════════════ */
+.tile{
+  display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
+  width:64px;height:90px;border-radius:8px;cursor:pointer;
+  user-select:none;flex-shrink:0;position:relative;
+  transition:transform var(--tr),outline .1s;
+  animation:dealIn .2s ease both;
+  font-family:'JetBrains Mono',monospace;
+}
+.tile:hover:not(.back-tile){transform:translateY(-7px)}
+.tile.sel{outline:3px solid var(--gold);transform:translateY(-14px);box-shadow:0 8px 22px rgba(200,131,42,.5)}
+.tile .tn{font-size:34px;font-weight:700;line-height:1}
+.tile .ts{font-size:11px;margin-top:2px;opacity:.7}
+.tile.tile-red{background:#f0dada;border:2px solid #c0392b;color:#8b0000}
+.tile.tile-blue{background:#d8e4f0;border:2px solid #1a5a9b;color:#0a3060}
+.tile.tile-black{background:#d4d4d4;border:2px solid #2a2a3e;color:#1a1a2e}
+.tile.tile-yellow{background:#f0e8d0;border:2px solid #c8920a;color:#7a5a00}
+.tile.tile-okey{background:linear-gradient(135deg,#1a0a2e,#2a0a1e);border:2px solid #9a3ae8;color:var(--gold2)}
+.tile.tile-mj0{background:#f0dada;border:2px solid #c0392b;color:#8b0000}
+.tile.tile-mj1{background:#d8f0e4;border:2px solid #1a8b4a;color:#0a5a28}
+.tile.tile-mj2{background:#d8e4f0;border:2px solid #1a5a9b;color:#0a3060}
+.tile.back-tile{background:linear-gradient(135deg,#1c1508,#2a2010);border:2px solid var(--cborder);cursor:default}
+.tile.back-tile::after{content:'';position:absolute;inset:4px;border:1px solid var(--cborder);border-radius:4px}
+
+/* HAND (scrollabil orizontal) */
+.hand{display:flex;flex-wrap:nowrap;gap:3px;overflow-x:auto;padding:4px 2px 12px;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:var(--cborder) var(--bg3)}
+.hand .card,.hand .tile{scroll-snap-align:start;animation-delay:calc(var(--i,.0)*0.025s)}
+
+/* MELD GRP */
+.table-melds{display:flex;flex-wrap:wrap;gap:6px;min-height:40px}
+.meld-grp{display:inline-flex;gap:2px;align-items:center;background:rgba(200,131,42,.06);border:1px solid rgba(200,131,42,.2);border-radius:var(--r);padding:4px;cursor:pointer;transition:border-color var(--tr)}
+.meld-grp:hover{border-color:rgba(200,131,42,.5)}
+.meld-grp .card,.meld-grp .tile{animation:none}
+.meld-owner{font-size:9px;color:var(--muted);font-family:'JetBrains Mono',monospace;writing-mode:vertical-rl;padding:0 2px}
+
+/* PILES */
+.piles-row{display:flex;gap:14px;align-items:flex-end;padding:8px 10px}
+.pile-wrap{display:flex;flex-direction:column;align-items:center;gap:4px}
+.pile-label2{font-size:9px;color:var(--muted);font-family:'JetBrains Mono',monospace}
+.empty-pile{width:76px;height:108px;border:2px dashed var(--cborder);border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--dim);cursor:pointer;transition:border-color var(--tr),color var(--tr)}
+.empty-pile:hover{border-color:var(--gold);color:var(--gold)}
+.empty-tile-pile{width:64px;height:90px;border:2px dashed var(--cborder);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--dim);cursor:pointer;transition:border-color var(--tr),color var(--tr)}
+.empty-tile-pile:hover{border-color:var(--gold);color:var(--gold)}
+.pcnt{font-size:10px;color:var(--muted);font-family:'JetBrains Mono',monospace}
+
+/* OKEY INDICATOR */
+.okey-indicator{display:flex;flex-direction:column;align-items:center;gap:4px}
+.okey-label{font-size:9px;color:var(--gold);font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:1px}
+
+/* ACTIONS */
+.actions{display:flex;gap:5px;flex-wrap:wrap;padding:8px 10px;background:var(--bg2);border-top:1px solid var(--cborder)}
+.btn{border-radius:18px;padding:6px 14px;font-family:'JetBrains Mono',monospace;font-size:11px;cursor:pointer;border:1px solid;transition:all var(--tr);white-space:nowrap}
+.btn-p{background:var(--gold);border-color:var(--gold);color:var(--bg)}
+.btn-p:hover:not(:disabled){background:var(--gold2);border-color:var(--gold2)}
+.btn-s{background:none;border-color:var(--cborder);color:var(--cream)}
+.btn-s:hover:not(:disabled){border-color:var(--gold);color:var(--gold)}
+.btn-d{background:none;border-color:var(--red);color:var(--red2)}
+.btn-d:hover:not(:disabled){background:var(--red);color:#fff}
+.btn:disabled{opacity:.35;cursor:not-allowed}
+
+/* HELP */
+.help{background:var(--bg3);border:1px solid var(--cborder);border-radius:var(--r);padding:10px 12px}
+.help h3{font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--gold2);margin-bottom:5px}
+.help ul{padding-left:14px;font-size:12px;color:var(--cream);line-height:1.7}
+.help em{color:var(--gold);font-style:normal;font-weight:500}
+
+/* CONTRACT DISPLAY */
+.contract-info{background:var(--bg4);border:1px solid var(--cborder);border-radius:var(--r);padding:8px 12px;margin-bottom:6px;font-size:12px}
+.contract-info .ci-label{font-size:10px;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-bottom:3px}
+.contract-info .ci-val{color:var(--gold2);font-family:'Cormorant Garamond',serif;font-size:15px}
+.contract-info .ci-progress{color:var(--muted);font-size:11px;margin-top:2px}
+
+/* PHASE DISPLAY */
+.phase-info{background:var(--bg4);border:1px solid var(--cborder);border-radius:var(--r);padding:8px 12px;margin-bottom:6px}
+.phase-info .pi-label{font-size:10px;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-bottom:3px}
+.phase-info .pi-val{color:var(--gold2);font-size:13px;line-height:1.4}
+.phase-dots{display:flex;gap:4px;margin-top:6px;flex-wrap:wrap}
+.phase-dot{width:16px;height:16px;border-radius:50%;background:var(--bg5);border:1px solid var(--dim);font-size:9px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace}
+.phase-dot.done{background:var(--gold);border-color:var(--gold);color:var(--bg)}
+.phase-dot.current{border-color:var(--gold2);color:var(--gold2)}
+
+/* MODAL */
+.modal{position:fixed;inset:0;background:rgba(13,10,8,.93);display:flex;align-items:center;justify-content:center;z-index:200;padding:16px}
+.modal-box{background:var(--bg3);border:1px solid var(--gold);border-radius:var(--r2);padding:22px;max-width:320px;width:100%;text-align:center}
+.modal-icon{font-size:48px;margin-bottom:10px}
+.modal-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--gold2);margin-bottom:6px}
+.modal-msg{font-size:13px;color:var(--cream);line-height:1.6;margin-bottom:16px}
+.modal-btns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+
+@media(max-width:480px){
+  .card{width:60px;height:86px}
+  .cr,.crb{font-size:11px}
+  .cs{font-size:22px}
+  .tile{width:52px;height:74px}
+  .tile .tn{font-size:26px}
+  .empty-pile{width:60px;height:86px}
+  .game-sel{grid-template-columns:repeat(auto-fill,minmax(110px,1fr))}
+  .atlas-grid{grid-template-columns:1fr}
+}
+@media(min-width:700px){
+  .atlas-grid{grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
+}
+
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-logo">🃏</div>
+  <div style="flex:1;min-width:0">
+    <div class="hdr-title">Remi fără frontiere</div>
+    <div class="hdr-sub">Atlas · 20 variante jucabile · Atlantykron · Centrul StrING</div>
+  </div>
+  <div class="hdr-badge" id="hdr-badge">20 variante</div>
+</header>
+<nav class="tabs" role="tablist">
+  <button class="tab active" data-tab="atlas">📚 Atlas (20)</button>
+  <button class="tab" data-tab="play">🎮 Joacă</button>
+</nav>
+
+<!-- ═══ ATLAS ═══ -->
+<div class="panel active" id="tab-atlas">
+  <div class="atlas-grid" id="atlasGrid"></div>
+</div>
+
+<!-- ═══ PLAY ═══ -->
+<div class="panel" id="tab-play">
+  <!-- Game Selector -->
+  <div id="gameSel">
+    <div style="padding:6px 0 8px;font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--muted)">Alege o variantă de jucat contra AI:</div>
+    <div class="game-sel" id="gameSelGrid"></div>
+  </div>
+  <!-- Game Board -->
+  <div id="gameBoard" class="hidden">
+    <div class="board-hdr">
+      <button class="back-btn" id="btnBack">← Selectare</button>
+      <span class="game-name" id="gameName"></span>
+      <span class="contract-badge hidden" id="contractBadge"></span>
+    </div>
+    <div class="scores" id="scoresRow">
+      <div class="sbox active" id="sboxP">
+        <div class="sname">Tu</div>
+        <div class="sval" id="scoreP">0</div>
+        <div class="ssub" id="statusP">—</div>
+      </div>
+      <div class="sbox" id="sboxA">
+        <div class="sname">AI</div>
+        <div class="sval" id="scoreA">0</div>
+        <div class="ssub" id="statusA">—</div>
+      </div>
+    </div>
+    <div class="statusbar">
+      <span class="phase" id="phaseEl">—</span>
+      <span class="smsg" id="msgEl">—</span>
+      <span class="ssc" id="scEl"></span>
+    </div>
+    <!-- Contract/Phase info (shown for contract games) -->
+    <div id="contractInfo" class="contract-info hidden">
+      <div class="ci-label">Contract curent</div>
+      <div class="ci-val" id="ciVal">—</div>
+      <div class="ci-progress" id="ciProg">—</div>
+    </div>
+    <div id="phaseInfo" class="phase-info hidden">
+      <div class="pi-label">Faze Phase 10</div>
+      <div class="pi-val" id="piVal">—</div>
+      <div class="phase-dots" id="phaseDots"></div>
+    </div>
+    <div class="board" id="boardMain">
+      <div class="zone" id="zoneAI">
+        <div class="zlabel">Adversar AI <span class="zcount" id="aiCntEl">0</span></div>
+        <div class="hand" id="aiHandEl"></div>
+      </div>
+      <div class="zone hidden" id="zoneTable">
+        <div class="zlabel">Masă — melduri <span class="zcount" id="tblCntEl">0</span></div>
+        <div class="table-melds" id="tblMeldsEl"></div>
+      </div>
+      <div class="piles-row" id="zonePiles">
+        <div class="pile-wrap">
+          <div class="pile-label2">STOC</div>
+          <div class="empty-pile" id="stockEl">🂠</div>
+          <div class="pcnt" id="stockCntEl">0</div>
+        </div>
+        <div class="pile-wrap">
+          <div class="pile-label2">ARUNCAT</div>
+          <div id="discardTopEl"></div>
+          <div class="pcnt" id="discardCntEl">0</div>
+        </div>
+        <!-- Okey indicator (tile games) -->
+        <div class="okey-indicator hidden" id="okeyZone">
+          <div class="okey-label">Okey indicator</div>
+          <div id="okeyIndicatorEl"></div>
+        </div>
+        <div style="flex:1;padding:4px 0;font-size:12px;color:var(--muted)" id="hintEl"></div>
+      </div>
+      <div class="zone" id="zonePlayer">
+        <div class="zlabel">Mâna ta <span class="zcount" id="pCntEl">0</span>
+          <span class="zcount zentree hidden" id="entreeOkEl">INTRARE ✓</span>
+          <span class="zcount" id="dwEl" style="color:var(--gold)"></span>
+        </div>
+        <div class="hand" id="pHandEl"></div>
+      </div>
+      <div class="actions" id="actionsEl"></div>
+    </div>
+    <div class="help" id="helpEl">
+      <h3 id="helpTitle">—</h3>
+      <ul id="helpList"></ul>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal hidden" id="winModal">
+  <div class="modal-box">
+    <div class="modal-icon" id="winIcon">🏆</div>
+    <div class="modal-title" id="winTitle">—</div>
+    <div class="modal-msg" id="winMsg">—</div>
+    <div class="modal-btns">
+      <button class="btn btn-p" id="btnWinRestart">▶ Joacă din nou</button>
+      <button class="btn btn-s" id="btnWinClose">✕ Închide</button>
+    </div>
+  </div>
+</div>
+
+<script>
+
+'use strict';
+/* ═══════════════ CARD / TILE MODEL ════════════════ */
+const SUITS=['♠','♥','♦','♣'],SR=[false,true,true,false];
+const RANKS=['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
+const RVALS=[11,2,3,4,5,6,7,8,9,10,10,10,10]; // remi values
+const GVALS=[1,2,3,4,5,6,7,8,9,10,10,10,10];  // gin values
+let _gid=0;
+function mkCard(r,s,j=false){return{id:_gid++,rank:r,suit:s,joker:j,sel:false}}
+function mkDeck(nd=1,nj=0){
+  const d=[];
+  for(let k=0;k<nd;k++) for(let s=0;s<4;s++) for(let r=0;r<13;r++) d.push(mkCard(r,s));
+  for(let j=0;j<nj;j++) d.push(mkCard(-1,-1,true));
+  return d;
+}
+function mkConquianDeck(nd=1){
+  // 40 cards: A-7, J-K (no 8,9,10 → ranks 7,8,9 removed)
+  const d=[];
+  for(let k=0;k<nd;k++) for(let s=0;s<4;s++)
+    for(let r=0;r<13;r++) if(r<7||r>9) d.push(mkCard(r,s));
+  return d;
+}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=0|Math.random()*(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;}
+function cardRval(c){return c.joker?10:RVALS[c.rank];}
+function cardGval(c){return c.joker?0:GVALS[c.rank];}
+function cardLabel(c){return c.joker?'JKR':RANKS[c.rank]+SUITS[c.suit];}
+
+/* ═══════════════ TILE MODEL (Okey/Rummikub/Mahjong) ════════════════ */
+const TILE_COLORS=['tile-red','tile-blue','tile-black','tile-yellow'];
+const TILE_COLOR_NAMES=['Roșu','Albastru','Negru','Galben'];
+const MJ_SUITS=['tile-mj0','tile-mj1','tile-mj2'];
+const MJ_SUIT_SYMBOLS=['🀇','🀙','🀁']; // characters, circles, bamboo
+let _tid=0;
+function mkTile(num,color,joker=false){return{id:_tid++,num,color,joker,sel:false,isTile:true}}
+function mkTileDeck(nd=2,nj=2){
+  const d=[];
+  for(let k=0;k<nd;k++) for(let c=0;c<4;c++) for(let n=1;n<=13;n++) d.push(mkTile(n,c));
+  for(let j=0;j<nj;j++) d.push(mkTile(0,-1,true));
+  return d;
+}
+function mkMahjongDeck(){
+  const d=[];
+  for(let k=0;k<4;k++) for(let s=0;s<3;s++) for(let n=1;n<=9;n++) d.push(mkTile(n,s));
+  return d; // 108 tiles
+}
+
+/* ═══════════════ MELD VALIDATION ════════════════ */
+function isValidSet(cards){
+  if(cards.length<3||cards.length>4) return false;
+  const n=cards.filter(c=>!(c.joker));
+  if(!n.length) return false;
+  const r=n[0].isTile?n[0].num:n[0].rank;
+  const seen=new Set();
+  for(const c of n){
+    const cr=c.isTile?c.num:c.rank;
+    const cs=c.isTile?c.color:c.suit;
+    if(cr!==r) return false;
+    if(seen.has(cs)) return false;
+    seen.add(cs);
+  }
+  return true;
+}
+function isValidRun(cards){
+  if(cards.length<3) return false;
+  const n=cards.filter(c=>!c.joker);
+  if(!n.length) return false;
+  const jokers=cards.length-n.length;
+  const suit=n[0].isTile?n[0].color:n[0].suit;
+  for(const c of n) if((c.isTile?c.color:c.suit)!==suit) return false;
+  const sorted=[...n].sort((a,b)=>(a.isTile?a.num:a.rank)-(b.isTile?b.num:b.rank));
+  for(let i=1;i<sorted.length;i++){
+    const ra=sorted[i].isTile?sorted[i].num:sorted[i].rank;
+    const rb=sorted[i-1].isTile?sorted[i-1].num:sorted[i-1].rank;
+    if(ra===rb) return false;
+  }
+  const rLast=sorted[sorted.length-1].isTile?sorted[sorted.length-1].num:sorted[sorted.length-1].rank;
+  const rFirst=sorted[0].isTile?sorted[0].num:sorted[0].rank;
+  let gaps=0; for(let i=1;i<sorted.length;i++){const a=sorted[i].isTile?sorted[i].num:sorted[i].rank;const b=sorted[i-1].isTile?sorted[i-1].num:sorted[i-1].rank;gaps+=a-b-1;}
+  const span=rLast-rFirst+1;
+  if(span<=cards.length&&gaps<=jokers) return true;
+  // A-high: tiles 1-13 (Okey) or rank 0=A (cards)
+  if((n[0].isTile&&n[0].num===1)||(!n[0].isTile&&n[0].rank===0)){
+    const alt=[...sorted.slice(1),{num:14,rank:13,suit,color:suit,isTile:n[0].isTile}];
+    let g2=0;for(let i=1;i<alt.length;i++){const a=alt[i].isTile?alt[i].num:alt[i].rank;const b=alt[i-1].isTile?alt[i-1].num:alt[i-1].rank;g2+=a-b-1;}
+    const sp2=(alt[alt.length-1].isTile?alt[alt.length-1].num:alt[alt.length-1].rank)-(alt[0].isTile?alt[0].num:alt[0].rank)+1;
+    if(sp2<=cards.length&&g2<=jokers) return true;
+  }
+  return false;
+}
+function isValidMeld(cards){return cards.length>=3&&(isValidSet(cards)||isValidRun(cards));}
+function meldPoints(cards){
+  if(!isValidMeld(cards)) return 0;
+  const n=cards.filter(c=>!c.joker);
+  if(!n.length) return 0;
+  const j=cards.length-n.length;
+  if(isValidSet(cards)){
+    const v=n[0].isTile?n[0].num:RVALS[n[0].rank];
+    return n.length*v+j*v;
+  }
+  let v=n.reduce((s,c)=>s+(c.isTile?c.num:RVALS[c.rank]),0);
+  if(j>0&&n.length>0) v+=j*(v/n.length);
+  return v;
+}
+function canExtendMeld(meld,newCards){return isValidMeld([...meld,...newCards]);}
+
+/* ═══════════════ MELD FINDER ════════════════ */
+function findAllMelds(hand){
+  const n=hand.filter(c=>!c.joker),j=hand.filter(c=>c.joker);
+  const found=[];
+  const byKey={};
+  for(const c of n){const k=c.isTile?c.num:c.rank;if(!byKey[k])byKey[k]=[];byKey[k].push(c);}
+  for(const k in byKey){
+    const g=byKey[k];
+    if(g.length>=3){found.push(g.slice(0,3));if(g.length>=4)found.push(g.slice(0,4));}
+    if(g.length>=2&&j.length>=1)found.push([...g.slice(0,2),j[0]]);
+    if(g.length>=1&&j.length>=2)found.push([g[0],j[0],j[1]]);
+  }
+  const bySuit={};
+  for(const c of n){const s=c.isTile?c.color:c.suit;if(!bySuit[s])bySuit[s]=[];bySuit[s].push(c);}
+  for(const s in bySuit){
+    const sc=[...bySuit[s]].sort((a,b)=>(a.isTile?a.num:a.rank)-(b.isTile?b.num:b.rank));
+    for(let i=0;i<sc.length;i++)for(let len=3;i+len<=sc.length;len++){
+      const sub=sc.slice(i,i+len);
+      const span=((sub[sub.length-1].isTile?sub[sub.length-1].num:sub[sub.length-1].rank)-(sub[0].isTile?sub[0].num:sub[0].rank));
+      const needed=span-(sub.length-1);
+      if(needed<=j.length&&needed>=0){const run=[...sub,...j.slice(0,needed)];if(isValidRun(run))found.push(run);}
+    }
+  }
+  return found;
+}
+function bestCover(hand){
+  const melds=findAllMelds(hand);
+  melds.sort((a,b)=>b.length-a.length);
+  const used=new Set(),chosen=[];
+  for(const m of melds){const ids=m.map(c=>c.id);if(ids.every(id=>!used.has(id))){chosen.push(m);ids.forEach(id=>used.add(id));}}
+  const deadwood=hand.filter(c=>!used.has(c.id));
+  return{melds:chosen,deadwood};
+}
+function handDeadwood(hand,valFn=cardGval){const{deadwood}=bestCover(hand);return deadwood.reduce((s,c)=>s+valFn(c),0);}
+
+/* ═══════════════ 20 GAME DEFINITIONS ════════════════ */
+const GAMES={
+ remi:{id:'remi',name:'Remi Românesc',icon:'🃏',
+  decks:2,jokers:4,handSize:14,tableMelds:true,entree:51,
+  knock:false,valFn:'rval',target:null,color:'#c8832a',group:'table',
+  rules:['2 pachete + 4 jokeri, 14 cărți','Prima melduire trebuie să totalizeze ≥ <em>51 puncte</em>','Câștigă primul care rămâne fără cărți în mână','Poți extinde orice meld de pe masă după intrare']},
+ scala40:{id:'scala40',name:'Scala 40',icon:'🇮🇹',
+  decks:1,jokers:2,handSize:13,tableMelds:true,entree:40,
+  knock:false,valFn:'rval',target:null,color:'#2a8bc8',group:'table',
+  rules:['1 pachet + 2 jokeri, 13 cărți','Prima melduire ≥ <em>40 puncte</em> (varianta italiană)','Reguli similare cu Remi Românesc, dar mai simplu']},
+ kalooki:{id:'kalooki',name:'Kalooki',icon:'🌊',
+  decks:2,jokers:2,handSize:13,tableMelds:true,entree:0,
+  knock:false,valFn:'rval',target:null,color:'#2ac88a',group:'table',
+  jokerNaturals:2,
+  rules:['2 pachete + 2 jokeri, 13 cărți','Joker-ul necesită ≥ <em>2 cărți naturale</em> per meld','Varianta Caraibe / Malta / comunități evreiești UK']},
+ rummy500:{id:'rummy500',name:'Rummy 500',icon:'🎯',
+  decks:1,jokers:0,handSize:7,tableMelds:true,entree:0,
+  knock:false,valFn:'rval',target:500,color:'#c82a8b',group:'table',
+  rules:['1 pachet, 7 cărți','Scor acumulativ — primul la <em>500 puncte</em> câștigă','Cărțile rămase la final scad din scor']},
+ dummyrummy:{id:'dummyrummy',name:'Dummy Rummy',icon:'🎭',
+  decks:1,jokers:2,handSize:10,tableMelds:true,entree:0,
+  knock:false,valFn:'gval',target:null,color:'#7a2ac8',group:'table',
+  jokerSteal:true,
+  rules:['1 pachet + 2 jokeri, 10 cărți','Joker-ul poate fi <em>furat</em> din melduri cu cartea reală','Melduri pe masă, câștigă cel fără cărți']},
+ carousel:{id:'carousel',name:'Carousel Rummy',icon:'🎠',
+  decks:1,jokers:0,handSize:10,tableMelds:true,entree:0,
+  knock:false,valFn:'gval',target:null,color:'#c86a2a',group:'table',
+  carousel:true,
+  rules:['1 pachet, 10 cărți','Meldurile de pe masă pot fi <em>rearanjate</em> liber','Toate meldurile trebuie să rămână valide la final de tură']},
+ gin:{id:'gin',name:'Gin Rummy',icon:'♠',
+  decks:1,jokers:0,handSize:10,tableMelds:false,entree:0,
+  knock:true,knockThreshold:10,gin:true,ginBonus:25,undercutBonus:25,
+  valFn:'gval',target:100,color:'#1a3a6a',group:'knock',
+  rules:['1 pachet, 10 cărți','<em>Knock</em> când deadwood ≤10 puncte (A=1pt)','<em>Gin</em> când deadwood=0 → +25 bonus','<em>Undercut</em>: adversarul te bate → adversarul +25 bonus','Primul la 100 puncte câștigă']},
+ oklahoma:{id:'oklahoma',name:'Oklahoma Gin',icon:'🤠',
+  decks:1,jokers:0,handSize:10,tableMelds:false,entree:0,
+  knock:true,knockThreshold:'dynamic',gin:true,ginBonus:25,undercutBonus:25,
+  spadeDouble:true,valFn:'gval',target:100,color:'#6a4a1a',group:'knock',
+  rules:['Gin cu prag variabil: prima carte aruncată = pragul de knock','Dacă prima carte e <em>Pică</em>: scorul turei se dublează','Dacă prima carte e <em>As</em>: poți face doar Gin (knock interzis)']},
+ hollywood:{id:'hollywood',name:'Hollywood Gin',icon:'🎬',
+  decks:1,jokers:0,handSize:10,tableMelds:false,entree:0,
+  knock:true,knockThreshold:10,gin:true,ginBonus:25,undercutBonus:25,
+  hollywoodGames:3,valFn:'gval',target:100,color:'#6a1a4a',group:'knock',
+  rules:['Gin cu <em>3 partide paralele</em>','Prima victorie → intri în jocul 1','A doua → intri și în jocul 2; a treia → și în jocul 3','Câștigă cel care câștigă toate 3 sau scor maxim la 100pt']},
+ conquian:{id:'conquian',name:'Conquian',icon:'🌵',
+  decks:1,jokers:0,handSize:8,tableMelds:true,entree:0,
+  knock:false,valFn:'gval',target:null,color:'#6a8a1a',group:'table',
+  conquianRules:true,specialDeck:40,
+  rules:['<em>40 cărți</em> (fără 8,9,10), 8 cărți în mână','Originar Rummy (Mexic, sec. XIX)','Poți "forța" adversarul să ia o carte refuzată','Câștigă cel care meldează 11 cărți pe masă']},
+ contract:{id:'contract',name:'Contract Rummy',icon:'📜',
+  decks:2,jokers:4,handSize:7,tableMelds:true,entree:0,
+  knock:false,valFn:'gval',target:null,color:'#8b2ac8',group:'contract',
+  contractDefs:[
+   {label:'2 seturi de 3',sets:2,setSize:3,runs:0,runSize:0},
+   {label:'1 set de 3 + 1 run de 4',sets:1,setSize:3,runs:1,runSize:4},
+   {label:'2 run-uri de 4',sets:0,setSize:0,runs:2,runSize:4},
+   {label:'3 seturi de 3',sets:3,setSize:3,runs:0,runSize:0},
+   {label:'2 seturi de 3 + 1 run de 4',sets:2,setSize:3,runs:1,runSize:4},
+   {label:'1 set de 3 + 2 run-uri de 4',sets:1,setSize:3,runs:2,runSize:4},
+   {label:'3 run-uri de 4',sets:0,setSize:0,runs:3,runSize:4}
+  ],
+  rules:['7 mâini cu contracte predefinite crescânde','Poți "cumpăra" din discard chiar dacă nu e rândul tău (+1 penalitate)','Câștigă cel cu cel mai mic scor la final de 7 mâini']},
+ shanghai:{id:'shanghai',name:'Shanghai Rummy',icon:'🏙',
+  decks:2,jokers:4,handSize:10,tableMelds:true,entree:0,
+  knock:false,valFn:'gval',target:null,color:'#c82a2a',group:'contract',
+  contractDefs:[
+   {label:'2 seturi de 3',sets:2,setSize:3,runs:0,runSize:0},
+   {label:'1 set de 3 + 1 run de 4',sets:1,setSize:3,runs:1,runSize:4},
+   {label:'2 run-uri de 4',sets:0,setSize:0,runs:2,runSize:4},
+   {label:'3 seturi de 3',sets:3,setSize:3,runs:0,runSize:0},
+   {label:'2 seturi de 3 + 1 run de 4',sets:2,setSize:3,runs:1,runSize:4},
+   {label:'1 set de 3 + 2 run-uri de 4',sets:1,setSize:3,runs:2,runSize:4},
+   {label:'3 run-uri de 4',sets:0,setSize:0,runs:3,runSize:4},
+   {label:'3 seturi + 1 run de 4',sets:3,setSize:3,runs:1,runSize:4},
+   {label:'2 seturi + 2 run-uri',sets:2,setSize:3,runs:2,runSize:4},
+   {label:'3 run-uri de 4 + 3 seturi',sets:3,setSize:3,runs:3,runSize:4}
+  ],buying:true,
+  rules:['10 mâini cu contracte și <em>cumpărare</em>','Cumpărarea: poți lua din discard, dar adversarul ia mai întâi','10-14 cărți pe mână în funcție de rundă']},
+ phase10:{id:'phase10',name:'Phase 10',icon:'🔢',
+  decks:2,jokers:8,handSize:10,tableMelds:true,entree:0,
+  knock:false,valFn:'gval',target:null,color:'#2ac8c8',group:'phase',
+  phaseDefs:[
+   {label:'Faza 1: 2 seturi de 3',check:'2x3set'},
+   {label:'Faza 2: 1 set de 3 + run de 4',check:'1x3set+1x4run'},
+   {label:'Faza 3: 1 set de 4 + run de 4',check:'1x4set+1x4run'},
+   {label:'Faza 4: run de 7',check:'1x7run'},
+   {label:'Faza 5: run de 8',check:'1x8run'},
+   {label:'Faza 6: run de 9',check:'1x9run'},
+   {label:'Faza 7: 2 seturi de 4',check:'2x4set'},
+   {label:'Faza 8: 7 de aceeași culoare',check:'7color'},
+   {label:'Faza 9: set de 5 + set de 2',check:'1x5set+1x2set'},
+   {label:'Faza 10: set de 5 + set de 3',check:'1x5set+1x3set'}
+  ],
+  rules:['10 faze predefinite care trebuie completate în ordine','Completezi faza curentă, arunci restul, treci la faza următoare','Câștigă primul care termină Faza 10 cu cele mai puține penalități']},
+ canasta:{id:'canasta',name:'Canasta Clasică',icon:'🌹',
+  decks:2,jokers:4,handSize:11,tableMelds:true,entree:50,
+  knock:false,valFn:'canasta',target:5000,color:'#c8a02a',group:'canasta',
+  canastaRules:true,
+  rules:['2 pachete + 4 jokeri, 11 cărți','Formezi <em>canaste</em> (7 cărți de același rank)','Canasta pură (fără jokeri)=500pt, mixtă=300pt','Trebuie cel puțin 1 canastă pentru a ieși','Primul la 5000 puncte câștigă']},
+ amcanasta:{id:'amcanasta',name:'American Canasta',icon:'🇺🇸',
+  decks:2,jokers:4,handSize:11,tableMelds:true,entree:50,
+  knock:false,valFn:'canasta',target:5000,color:'#c8402a',group:'canasta',
+  canastaRules:true,americanRules:true,
+  rules:['Canasta cu reguli americane','Cărțile negre 3 = -500pt penalitate','Cărțile roșii 3 = +500pt bonus (auto-jucate)','Canaste pure=500pt, mixte=300pt']},
+ bolivia:{id:'bolivia',name:'Canasta Boliviană',icon:'🌺',
+  decks:3,jokers:6,handSize:11,tableMelds:true,entree:90,
+  knock:false,valFn:'canasta',target:15000,color:'#8bc82a',group:'canasta',
+  canastaRules:true,sambaAllowed:true,
+  rules:['3 pachete + 6 jokeri','<em>Samba</em> = secvență de 7 cărți de același suit = 1500pt','Jokers nu pot fi folosiți în samba','Primul la 15000 puncte câștigă']},
+ okey:{id:'okey',name:'Okey',icon:'🇹🇷',
+  tileGame:true,tileDeck:'okey',handSize:14,tableMelds:true,entree:0,
+  knock:false,valFn:'tile',target:null,color:'#c8a02a',group:'tile',
+  okeyRules:true,
+  rules:['106 plăcuțe (4 culori × 13 numere × 2 + 2 jokeri)','O plăcuță indicatoare determină <em>Okey-ul</em> (plăcuța imediat superioară)','Câștigă primul care aranjează toate 14 plăcuțe în 4 grupuri + 2 Okey']},
+ rummikub:{id:'rummikub',name:'Rummikub',icon:'🧩',
+  tileGame:true,tileDeck:'okey',handSize:14,tableMelds:true,entree:30,
+  knock:false,valFn:'tile',target:null,color:'#2a7ac8',group:'tile',
+  rummikubRules:true,carousel:true,
+  rules:['106 plăcuțe, 14 fiecare (ca Okey)','Intrare ≥ <em>30 puncte</em> din cărțile tale proprii','Poți rearanja toate plăcuțele de pe masă','Câștigă primul fără plăcuțe în mână']},
+ mahjong:{id:'mahjong',name:'Mahjong (simplificat)',icon:'🀄',
+  tileGame:true,tileDeck:'mahjong',handSize:13,tableMelds:false,entree:0,
+  knock:false,valFn:'tile',target:null,color:'#c82a5a',group:'tile',
+  mahjongRules:true,
+  rules:['108 plăcuțe (3 culori × 9 numere × 4)','Mâna câștigătoare: <em>4 melduri + 1 pereche</em>','Meld = 3 identice (pung) sau 3 consecutive același suit (chow)','Declari câștig când mâna e completă după o tragere']}
+};
+const GAME_ORDER=['remi','scala40','kalooki','rummy500','dummyrummy','carousel',
+ 'gin','oklahoma','hollywood','conquian',
+ 'contract','shanghai','phase10',
+ 'canasta','amcanasta','bolivia',
+ 'okey','rummikub','mahjong'];
+
+/* ═══════════════ GENERIC GAME STATE ════════════════ */
+const GS={
+  cfg:null,stock:[],discard:[],pHand:[],aHand:[],
+  tableMelds:[],
+  pEntered:false,aEntered:false,
+  pScore:0,aScore:0,
+  pTotalScore:0,aTotalScore:0,
+  phase:'idle',turn:'p',round:0,
+  contractRound:0,playerPhase:0,aiPhase:0,
+  hollywoodScores:[{p:0,a:0},{p:0,a:0},{p:0,a:0}],hwActive:[0,0,0],
+  knockThreshold:10,
+  okeyIndicator:null,okeyJokerNum:null,okeyJokerColor:null,
+  aiTimer:null,draws:0,maxDraws:80
+};
+
+function valOf(c,cfg){
+  const f=cfg?cfg.valFn:'rval';
+  if(c.joker||c.isTile) return c.joker?10:(c.num||0);
+  return f==='rval'?cardRval(c):f==='gval'?cardGval(c):cardGval(c);
+}
+
+function initGame(id){
+  clearTimeout(GS.aiTimer);
+  const cfg=GAMES[id];
+  if(!cfg) return;
+  GS.cfg=cfg; _gid=0; _tid=0;
+  Object.assign(GS,{
+    stock:[],discard:[],pHand:[],aHand:[],tableMelds:[],
+    pEntered:false,aEntered:false,
+    pHandScore:0,aHandScore:0,
+    phase:'draw',turn:'p',round:1,
+    contractRound:0,playerPhase:0,aiPhase:0,
+    hollywoodScores:[{p:0,a:0},{p:0,a:0},{p:0,a:0}],hwActive:[0,0,0],
+    knockThreshold:10,aiTimer:null,draws:0
+  });
+  let deck;
+  if(cfg.tileGame){
+    if(cfg.mahjongRules) deck=shuffle(mkMahjongDeck());
+    else deck=shuffle(mkTileDeck(2,2));
+    if(cfg.okeyRules){
+      // pick random indicator tile
+      const indicator=deck.splice(Math.floor(Math.random()*deck.length),1)[0];
+      GS.okeyIndicator=indicator;
+      GS.okeyJokerNum=indicator.num===13?1:(indicator.num+1);
+      GS.okeyJokerColor=indicator.color;
+    }
+  } else if(cfg.conquianRules) deck=shuffle(mkConquianDeck(1));
+  else deck=shuffle(mkDeck(cfg.decks,cfg.jokers));
+  GS.pHand=deck.splice(0,cfg.handSize);
+  GS.aHand=deck.splice(0,cfg.handSize);
+  if(cfg.id==='handfoot'){ GS.pFoot=deck.splice(0,cfg.handSize); GS.aFoot=deck.splice(0,cfg.handSize);}
+  GS.discard=[deck.splice(0,1)[0]];
+  GS.stock=deck;
+  if(cfg.id==='oklahoma') GS.knockThreshold=Math.min(10,GS.discard[0]&&!GS.discard[0].joker?GVALS[GS.discard[0].rank]:10);
+  renderBoard(); setStatus('draw','Trage o carte din stoc sau din grămada de aruncate.');
+}
+
+/* ─── DRAW ─── */
+function pDrawStock(){
+  if(GS.phase!=='draw'||GS.turn!=='p') return;
+  if(!GS.stock.length){reshuffleDiscard();if(!GS.stock.length){endNoStock();return;}}
+  const c=GS.stock.pop();
+  GS.pHand.push(c);
+  GS.phase='action'; GS.draws++;
+  renderBoard(); setStatus('action','Alege cărți și meldează, extinde, sau aruncă una.');
+}
+function pDrawDiscard(){
+  if(GS.phase!=='draw'||GS.turn!=='p') return;
+  if(!GS.discard.length) return;
+  GS.pHand.push(GS.discard.pop());
+  GS.phase='action'; GS.draws++;
+  renderBoard(); setStatus('action','Ai luat din grămadata de aruncate. Meldează sau aruncă.');
+}
+function reshuffleDiscard(){
+  if(GS.discard.length<=1) return;
+  const top=GS.discard.pop();
+  GS.stock=shuffle(GS.discard); GS.discard=[top];
+}
+function endNoStock(){
+  const pDw=GS.pHand.reduce((s,c)=>s+valOf(c,GS.cfg),0);
+  const aDw=GS.aHand.reduce((s,c)=>s+valOf(c,GS.cfg),0);
+  winGame(pDw<=aDw?'p':'a',`Stoc terminat! Tu: ${pDw}pt, AI: ${aDw}pt.`);
+}
+
+/* ─── MELD ─── */
+function pMeld(){
+  const sel=GS.pHand.filter(c=>c.sel);
+  const cfg=GS.cfg;
+  if(!isValidMeld(sel)){setStatus('action','⚠ Selecția nu formează un meld valid (min 3 cărți).');return;}
+  // Kalooki: joker needs ≥2 naturals
+  if(cfg.jokerNaturals&&sel.filter(c=>!c.joker).length<cfg.jokerNaturals&&sel.some(c=>c.joker)){
+    setStatus('action','⚠ Kalooki: joker-ul necesită ≥2 cărți naturale per meld.');return;
+  }
+  const pts=meldPoints(sel);
+  if(!GS.pEntered&&cfg.entree>0&&pts<cfg.entree){
+    setStatus('action',`⚠ Intrare insuficientă: ${pts.toFixed(0)}pt. Necesari ≥ ${cfg.entree}pt.`);return;
+  }
+  // Contract/Phase check
+  if(cfg.group==='contract'&&!GS.pEntered){
+    const cd=cfg.contractDefs[GS.contractRound];
+    if(cd&&!checkContractMeld(cd,sel)){
+      setStatus('action',`⚠ Acest meld nu îndeplinește contractul curent: ${cd.label}`);return;
+    }
+  }
+  if(cfg.group==='phase'&&!GS.pEntered){
+    const pd=cfg.phaseDefs[GS.playerPhase];
+    if(pd&&!checkPhaseMeld(pd,sel)){
+      setStatus('action',`⚠ Meld nu îndeplinește Faza ${GS.playerPhase+1}: ${pd.label}`);return;
+    }
+  }
+  // Score tracking for Rummy500
+  const scoreEarned=cfg.target===500?sel.reduce((s,c)=>s+valOf(c,cfg),0):0;
+  GS.tableMelds.push({owner:'p',cards:sel,score:scoreEarned});
+  GS.pHand=GS.pHand.filter(c=>!c.sel);
+  GS.pHand.forEach(c=>c.sel=false);
+  GS.pEntered=true;
+  if(cfg.target===500) GS.pTotalScore+=scoreEarned;
+  if(GS.pHand.length===0){endHand('p');return;}
+  renderBoard(); setStatus('action','Meld jucat! Continuă sau aruncă.');
+}
+
+function pExtend(){
+  const sel=GS.pHand.filter(c=>c.sel);
+  if(!sel.length){setStatus('action','⚠ Selectează cărți pentru extindere.');return;}
+  if(!GS.pEntered&&!GS.cfg.carousel){setStatus('action','⚠ Trebuie să faci prima melduire înainte.');return;}
+  let found=false;
+  for(const m of GS.tableMelds){
+    if(canExtendMeld(m.cards,sel)){
+      m.cards.push(...sel);
+      if(GS.cfg.target===500){const pts=sel.reduce((s,c)=>s+valOf(c,GS.cfg),0);GS.pTotalScore+=pts;}
+      GS.pHand=GS.pHand.filter(c=>!c.sel);
+      GS.pHand.forEach(c=>c.sel=false);
+      found=true;break;
+    }
+  }
+  if(!found){setStatus('action','⚠ Cărțile selectate nu extind niciun meld de pe masă.');return;}
+  if(GS.pHand.length===0){endHand('p');return;}
+  renderBoard(); setStatus('action','Extins! Poți continua sau arunca.');
+}
+
+function pDiscard(){
+  const sel=GS.pHand.filter(c=>c.sel);
+  if(sel.length!==1){setStatus('action','⚠ Selectează exact O carte de aruncat.');return;}
+  const c=sel[0]; c.sel=false;
+  GS.pHand=GS.pHand.filter(x=>x.id!==c.id);
+  GS.pHand.forEach(x=>x.sel=false);
+  GS.discard.push(c);
+  if(GS.pHand.length===0){endHand('p');return;}
+  GS.phase='ai'; GS.turn='a';
+  renderBoard(); setStatus('ai','Adversarul AI gândește…');
+  GS.aiTimer=setTimeout(aiTurn,900);
+}
+
+function pKnock(){
+  const cfg=GS.cfg; if(!cfg.knock) return;
+  const dw=handDeadwood(GS.pHand,cardGval);
+  const thresh=GS.knockThreshold;
+  if(dw>thresh){setStatus('action',`⚠ Deadwood: ${dw}pt. Knock necesită ≤${thresh}pt.`);return;}
+  resolveKnock('p');
+}
+function pGin(){
+  const dw=handDeadwood(GS.pHand,cardGval);
+  if(dw>0){setStatus('action',`⚠ Gin necesită deadwood 0. Ai ${dw}pt.`);return;}
+  resolveGin('p');
+}
+function resolveKnock(who){
+  const cfg=GS.cfg;
+  const pDw=handDeadwood(GS.pHand,cardGval);
+  const aDw=handDeadwood(GS.aHand,cardGval);
+  let pts, winner;
+  if(who==='p'){
+    if(pDw<aDw){pts=aDw-pDw;winner='p';}
+    else{pts=pDw-aDw+(cfg.undercutBonus||25);winner='a';}
+  } else {
+    if(aDw<pDw){pts=pDw-aDw;winner='a';}
+    else{pts=aDw-pDw+(cfg.undercutBonus||25);winner='p';}
+  }
+  addGinScore(winner,pts,false,cfg);
+  const spade=cfg.spadeDouble&&GS.discard[0]&&GS.discard[0].suit===0;
+  const finalPts=spade?pts*2:pts;
+  winGame(winner,(winner==='p'?'Tu':'AI')+' câștigă mâna cu '+finalPts+'pt.');
+}
+function resolveGin(who){
+  const cfg=GS.cfg;
+  const otherDw=handDeadwood(who==='p'?GS.aHand:GS.pHand,cardGval);
+  const bonus=cfg.ginBonus||25;
+  const pts=otherDw+bonus;
+  addGinScore(who,pts,true,cfg);
+  const spade=cfg.spadeDouble&&GS.discard[0]&&GS.discard[0].suit===0;
+  const finalPts=spade?pts*2:pts;
+  winGame(who,`${who==='p'?'Tu':'AI'} — GIN! +${finalPts}pt (deadwood adversar ${otherDw} + bonus ${bonus}).`);
+}
+function addGinScore(who,pts,isGin,cfg){
+  if(cfg.hollywoodGames){
+    for(let i=0;i<3;i++){
+      if(GS.hwActive[i]||GS.hollywoodScores[i].p>0||GS.hollywoodScores[i].a>0){
+        GS.hollywoodScores[i][who]+=pts; GS.hwActive[i]=1;
+        if(who==='p') GS.pScore=Math.max(GS.pScore,GS.hollywoodScores[i].p);
+        else GS.aScore=Math.max(GS.aScore,GS.hollywoodScores[i].a);
+        if(i===0&&!GS.hwActive[1]) GS.hwActive[1]=1; // unlock next
+        else if(i===1&&!GS.hwActive[2]) GS.hwActive[2]=1;
+        break;
+      }
+    }
+  } else {
+    if(who==='p') GS.pScore+=pts; else GS.aScore+=pts;
+  }
+}
+
+/* ─── CANASTA SCORING ─── */
+function canastaScore(melds,cfg){
+  let pts=0;
+  for(const m of melds){
+    if(m.cards.length>=7){
+      const pure=!m.cards.some(c=>c.joker||c.rank===1||c.rank===0);
+      pts+=pure?500:300;
+    }
+    pts+=m.cards.reduce((s,c)=>s+(c.joker?50:c.rank===0?20:c.rank===12||c.rank===11||c.rank===10?10:c.rank+1),0);
+  }
+  return pts;
+}
+
+/* ─── END HAND ─── */
+function endHand(winner){
+  const cfg=GS.cfg;
+  if(cfg.group==='contract'||cfg.group==='phase'){
+    // Advance contract/phase round
+    const penalties=GS.pHand.reduce((s,c)=>s+valOf(c,cfg),0)+GS.aHand.reduce((s,c)=>s+valOf(c,cfg),0);
+    if(winner==='p'){
+      if(cfg.group==='phase'){GS.playerPhase=Math.min(9,GS.playerPhase+1);}
+      else{GS.contractRound=Math.min((cfg.contractDefs||[]).length-1,GS.contractRound+1);}
+      GS.aScore+=GS.aHand.reduce((s,c)=>s+valOf(c,cfg),0);
+    } else {
+      if(cfg.group==='phase'){GS.aiPhase=Math.min(9,GS.aiPhase+1);}
+      else{GS.contractRound=Math.min((cfg.contractDefs||[]).length-1,GS.contractRound+1);}
+      GS.pScore+=GS.pHand.reduce((s,c)=>s+valOf(c,cfg),0);
+    }
+    const roundsDone=cfg.group==='phase'?(GS.playerPhase>=10||GS.aiPhase>=10):(GS.round>=(cfg.contractDefs||[]).length);
+    if(roundsDone){winGame(GS.pScore<=GS.aScore?'p':'a',`Final! Penalități: Tu ${GS.pScore}pt, AI ${GS.aScore}pt.`);return;}
+    GS.round++;
+    showModal(winner==='p'?'✅':'🤖',winner==='p'?'Mână câștigată!':'AI a câștigat mâna',
+      `Tu: ${GS.pScore}pt penalitate · AI: ${GS.aScore}pt. Runda ${GS.round}.`,()=>initGame(cfg.id));
+    return;
+  }
+  if(cfg.target===500){
+    if(GS.pTotalScore>=500){winGame('p',`Ai atins ${GS.pTotalScore}pt! AI: ${GS.aTotalScore}pt.`);return;}
+    if(GS.aTotalScore>=500){winGame('a',`AI a atins ${GS.aTotalScore}pt! Tu: ${GS.pTotalScore}pt.`);return;}
+    showModal(winner==='p'?'✅':'🤖',winner==='p'?'Mână câștigată!':'AI a câștigat',
+      `Tu: ${GS.pTotalScore}pt · AI: ${GS.aTotalScore}pt. Continuăm!`,()=>initGame(cfg.id));
+    return;
+  }
+  const penalty=GS.aHand.reduce((s,c)=>s+valOf(c,cfg),0);
+  const aiPenalty=GS.pHand.reduce((s,c)=>s+valOf(c,cfg),0);
+  if(winner==='p'){GS.pScore+=penalty;}else{GS.aScore+=aiPenalty;}
+  winGame(winner,winner==='p'?`Adversarul: ${penalty}pt penalitate. Scor tu: ${GS.pScore}pt.`:`Ai ${aiPenalty}pt penalitate. Scor AI: ${GS.aScore}pt.`);
+}
+
+/* ─── CONTRACT / PHASE CHECK HELPERS ─── */
+function checkContractMeld(cd,sel){
+  if(cd.sets>0&&isValidSet(sel)&&sel.length>=cd.setSize) return true;
+  if(cd.runs>0&&isValidRun(sel)&&sel.length>=cd.runSize) return true;
+  return false;
+}
+function checkPhaseMeld(pd,sel){
+  const check=pd.check;
+  if(check.includes('run')&&isValidRun(sel)){const n=parseInt(check.match(/(\d+)run/)[1]);return sel.length>=n;}
+  if(check.includes('set')&&isValidSet(sel)){const n=parseInt(check.match(/(\d+)set/)[1]);return sel.length>=n;}
+  if(check==='7color'){
+    const color=sel[0].suit;
+    return sel.length>=7&&sel.every(c=>c.suit===color||c.joker);
+  }
+  return false;
+}
+
+/* ─── AI TURN ─── */
+function aiTurn(){
+  const cfg=GS.cfg;
+  if(GS.phase!=='ai') return;
+  // 1. Draw
+  const top=GS.discard[GS.discard.length-1];
+  let tookDiscard=false;
+  if(top){
+    const h1=[...GS.aHand,top];
+    const{deadwood:dw1}=bestCover(h1);
+    const{deadwood:dw2}=bestCover(GS.aHand);
+    const v1=dw1.reduce((s,c)=>s+valOf(c,cfg),0);
+    const v2=dw2.reduce((s,c)=>s+valOf(c,cfg),0);
+    if(v1<v2){GS.aHand.push(GS.discard.pop());tookDiscard=true;}
+  }
+  if(!tookDiscard){
+    if(!GS.stock.length){reshuffleDiscard();if(!GS.stock.length){endNoStock();return;}}
+    GS.aHand.push(GS.stock.pop());
+  }
+  // 2. Meld/Extend
+  if(!cfg.knock){
+    const{melds,deadwood}=bestCover(GS.aHand);
+    const totalPts=melds.reduce((s,m)=>s+meldPoints(m),0);
+    const canEnter=!GS.aEntered?(cfg.entree===0||totalPts>=cfg.entree):true;
+    if(canEnter&&melds.length){
+      for(const m of melds){
+        const scoreEarned=cfg.target===500?m.reduce((s,c)=>s+valOf(c,cfg),0):0;
+        GS.tableMelds.push({owner:'a',cards:m,score:scoreEarned});
+        if(cfg.target===500) GS.aTotalScore+=scoreEarned;
+      }
+      GS.aHand=deadwood; GS.aEntered=true;
+      if(GS.aHand.length===0){endHand('a');return;}
+      // extend
+      let ch=true; let safety=0;
+      while(ch&&safety<30){ch=false;safety++;
+        for(const c of [...GS.aHand]) for(const tm of GS.tableMelds){
+          if(canExtendMeld(tm.cards,[c])){
+            tm.cards.push(c);
+            if(cfg.target===500) GS.aTotalScore+=valOf(c,cfg);
+            GS.aHand=GS.aHand.filter(x=>x.id!==c.id);ch=true;break;
+          }
+          if(ch) break;
+        }
+      }
+      if(GS.aHand.length===0){endHand('a');return;}
+    } else if(GS.aEntered){
+      let ch=true; let safety=0;
+      while(ch&&safety<30){ch=false;safety++;
+        for(const c of [...GS.aHand]) for(const tm of GS.tableMelds){
+          if(canExtendMeld(tm.cards,[c])){
+            tm.cards.push(c);
+            if(cfg.target===500) GS.aTotalScore+=valOf(c,cfg);
+            GS.aHand=GS.aHand.filter(x=>x.id!==c.id);ch=true;break;
+          }
+          if(ch) break;
+        }
+      }
+      if(GS.aHand.length===0){endHand('a');return;}
+    }
+  } else {
+    // Knock game AI
+    const dw=handDeadwood(GS.aHand,cardGval);
+    if(dw===0){resolveGin('a');return;}
+    if(dw<=GS.knockThreshold&&GS.round>2){resolveKnock('a');return;}
+  }
+  // 3. Discard
+  const{deadwood}=bestCover(GS.aHand);
+  const pool=deadwood.length?deadwood:GS.aHand;
+  const disc=pool.reduce((b,c)=>valOf(c,cfg)>valOf(b,cfg)?c:b,pool[0]);
+  GS.aHand=GS.aHand.filter(c=>c.id!==disc.id);
+  GS.discard.push(disc);
+  if(GS.aHand.length===0){endHand('a');return;}
+  GS.round++;GS.phase='draw';GS.turn='p';
+  renderBoard();setStatus('draw','Rândul tău! Trage o carte.');
+}
+
+/* ═══════════════ RENDERING ════════════════ */
+const SUITS2=['♠','♥','♦','♣'],SR2=[false,true,true,false];
+const RANKS2=['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
+const TILE_LABELS=['Roșu','Albastru','Negru','Galben'];
+const MJ_NAMES=['Dragon','Bambus','Cerc'];
+
+function isOkeyJoker(tile){
+  if(!GS.okeyJokerNum) return tile.joker;
+  return !tile.joker&&tile.num===GS.okeyJokerNum&&tile.color===GS.okeyJokerColor;
+}
+
+function mkCardEl(c,clickFn,face=true){
+  const el=document.createElement('div');
+  if(!face){el.className='card back';return el;}
+  if(c.isTile) return mkTileEl(c,clickFn,face);
+  const red=!c.joker&&SR2[c.suit];
+  el.className='card'+(c.joker?' joker':red?' red':' black')+(c.sel?' sel':'');
+  el.innerHTML=`<span class="cr">${c.joker?'JKR':RANKS2[c.rank]}</span><span class="cs">${c.joker?'★':SUITS2[c.suit]}</span><span class="crb">${c.joker?'JKR':RANKS2[c.rank]}</span>`;
+  if(clickFn) el.addEventListener('click',()=>clickFn(c));
+  return el;
+}
+function mkTileEl(t,clickFn,face=true){
+  const el=document.createElement('div');
+  if(!face){el.className='tile back-tile';return el;}
+  const isOkey=t.joker||isOkeyJoker(t);
+  const cfg=GS.cfg;
+  let cls='tile ';
+  if(isOkey) cls+='tile-okey';
+  else if(cfg&&cfg.mahjongRules) cls+=MJ_SUITS[t.color]||'tile-mj0';
+  else cls+=TILE_COLORS[t.color]||'tile-red';
+  if(t.sel) cls+=' sel';
+  el.className=cls;
+  const sym=cfg&&cfg.mahjongRules?MJ_NAMES[t.color]:'';
+  el.innerHTML=`<span class="tn">${isOkey?'★':(t.num||'?')}</span><span class="ts">${isOkey?'OKEY':sym}</span>`;
+  if(clickFn) el.addEventListener('click',()=>clickFn(t));
+  return el;
+}
+
+function renderHand(hand,elId,selectable,onSel){
+  const ct=document.getElementById(elId); if(!ct) return;
+  ct.innerHTML='';
+  hand.forEach((c,i)=>{
+    const el=c.isTile?mkTileEl(c,selectable?()=>{c.sel=!c.sel;el.classList.toggle('sel',c.sel);if(onSel)onSel();}:null,true)
+                     :mkCardEl(c,selectable?()=>{c.sel=!c.sel;el.classList.toggle('sel',c.sel);if(onSel)onSel();}:null,true);
+    el.style.setProperty('--i',i);
+    ct.appendChild(el);
+  });
+}
+function renderBackHand(hand,elId){
+  const ct=document.getElementById(elId); if(!ct) return;
+  ct.innerHTML='';
+  const isTile=hand[0]&&hand[0].isTile;
+  for(let i=0;i<hand.length;i++){
+    const el=isTile?mkTileEl(null,null,false):mkCardEl(null,null,false);
+    ct.appendChild(el);
+  }
+}
+function renderDiscardTop(card,elId){
+  const ct=document.getElementById(elId); if(!ct) return;
+  ct.innerHTML='';
+  if(!card){ct.innerHTML='<div class="empty-pile" style="cursor:default;opacity:.4">—</div>';return;}
+  const el=card.isTile?mkTileEl(card,null,true):mkCardEl(card,null,true);
+  el.style.animation='none';
+  ct.appendChild(el);
+}
+function renderTableMelds(melds,elId){
+  const ct=document.getElementById(elId); if(!ct) return;
+  ct.innerHTML='';
+  melds.forEach((m,mi)=>{
+    const grp=document.createElement('div'); grp.className='meld-grp';
+    const lbl=document.createElement('div'); lbl.className='meld-owner';
+    lbl.textContent=m.owner==='p'?'Tu':'AI';
+    lbl.style.color=m.owner==='p'?'var(--gold2)':'var(--red2)';
+    grp.appendChild(lbl);
+    m.cards.forEach(c=>{
+      const el=c.isTile?mkTileEl(c,null,true):mkCardEl(c,null,true);
+      el.style.animation='none'; grp.appendChild(el);
+    });
+    ct.appendChild(grp);
+  });
+}
+
+function renderBoard(){
+  const cfg=GS.cfg; if(!cfg) return;
+  // AI hand
+  renderBackHand(GS.aHand,'aiHandEl');
+  document.getElementById('aiCntEl').textContent=GS.aHand.length+' cărți';
+  // Table melds
+  if(cfg.tableMelds){
+    document.getElementById('zoneTable').classList.remove('hidden');
+    renderTableMelds(GS.tableMelds,'tblMeldsEl');
+    document.getElementById('tblCntEl').textContent=GS.tableMelds.length;
+  } else document.getElementById('zoneTable').classList.add('hidden');
+  // Stock
+  const stockEl=document.getElementById('stockEl');
+  const isTile=cfg.tileGame;
+  stockEl.className=isTile?'empty-tile-pile':'empty-pile';
+  stockEl.textContent=isTile?'⬜':'🂠';
+  // Discard
+  renderDiscardTop(GS.discard[GS.discard.length-1],'discardTopEl');
+  document.getElementById('stockCntEl').textContent=GS.stock.length;
+  document.getElementById('discardCntEl').textContent=GS.discard.length;
+  // Okey indicator
+  if(cfg.okeyRules&&GS.okeyIndicator){
+    document.getElementById('okeyZone').classList.remove('hidden');
+    const oi=document.getElementById('okeyIndicatorEl');
+    oi.innerHTML=''; oi.appendChild(mkTileEl(GS.okeyIndicator,null,true));
+  } else document.getElementById('okeyZone').classList.add('hidden');
+  // Player hand
+  const inAction=GS.phase==='action'&&GS.turn==='p';
+  renderHand(GS.pHand,'pHandEl',inAction,()=>{
+    if(cfg.knock){
+      const dw=handDeadwood(GS.pHand,cardGval);
+      document.getElementById('dwEl').textContent=`DW:${dw}pt`;
+      const bk=document.getElementById('btnKnock');
+      const bg=document.getElementById('btnGin');
+      if(bk) bk.disabled=!inAction||dw>GS.knockThreshold;
+      if(bg) bg.disabled=!inAction||dw!==0;
+    }
+  });
+  document.getElementById('pCntEl').textContent=GS.pHand.length+' cărți';
+  document.getElementById('entreeOkEl').classList.toggle('hidden',!GS.pEntered);
+  if(cfg.knock){
+    const dw=handDeadwood(GS.pHand,cardGval);
+    document.getElementById('dwEl').textContent=`DW:${dw}pt`;
+  } else document.getElementById('dwEl').textContent='';
+  // Score boxes
+  document.getElementById('sboxP').classList.toggle('active',GS.turn==='p');
+  document.getElementById('sboxA').classList.toggle('active',GS.turn==='a');
+  if(cfg.target===500){
+    document.getElementById('scoreP').textContent=GS.pTotalScore;
+    document.getElementById('scoreA').textContent=GS.aTotalScore;
+    document.getElementById('statusP').textContent=`din 500pt`;
+    document.getElementById('statusA').textContent=`din 500pt`;
+  } else {
+    document.getElementById('scoreP').textContent=GS.pScore;
+    document.getElementById('scoreA').textContent=GS.aScore;
+    document.getElementById('statusP').textContent=GS.pEntered?'Intrat ✓':'Nu a intrat';
+    document.getElementById('statusA').textContent=GS.aEntered?'Intrat ✓':'Nu a intrat';
+  }
+  // Contract info
+  if(cfg.group==='contract'&&cfg.contractDefs){
+    const ci=document.getElementById('contractInfo'); ci.classList.remove('hidden');
+    const cd=cfg.contractDefs[GS.contractRound];
+    document.getElementById('ciVal').textContent=cd?cd.label:'Contract final';
+    document.getElementById('ciProg').textContent=`Runda ${Math.min(GS.contractRound+1,cfg.contractDefs.length)} din ${cfg.contractDefs.length}`;
+  } else document.getElementById('contractInfo').classList.add('hidden');
+  // Phase info
+  if(cfg.group==='phase'&&cfg.phaseDefs){
+    const pi=document.getElementById('phaseInfo'); pi.classList.remove('hidden');
+    const pd=cfg.phaseDefs[GS.playerPhase];
+    document.getElementById('piVal').textContent=pd?pd.label:`Faze completate!`;
+    const dotsEl=document.getElementById('phaseDots'); dotsEl.innerHTML='';
+    cfg.phaseDefs.forEach((_,i)=>{
+      const d=document.createElement('div');
+      d.className='phase-dot'+(i<GS.playerPhase?' done':i===GS.playerPhase?' current':'');
+      d.textContent=i+1; dotsEl.appendChild(d);
+    });
+  } else document.getElementById('phaseInfo').classList.add('hidden');
+  // Hollywood scores
+  if(cfg.hollywoodGames){
+    document.getElementById('scoreP').textContent=GS.hollywoodScores.map((g,i)=>`J${i+1}:${g.p}`).join(' ');
+    document.getElementById('scoreA').textContent=GS.hollywoodScores.map((g,i)=>`J${i+1}:${g.a}`).join(' ');
+  }
+  // Update action buttons
+  updateActions();
+  // Hint
+  document.getElementById('hintEl').innerHTML=
+    GS.phase==='draw'?'<b style="color:var(--gold)">Pasul 1:</b> Trage (click pe stoc sau pe cartea aruncată)':
+    GS.phase==='action'?'<b style="color:var(--gold)">Pasul 2:</b> Selectează → Meld/Extinde/Aruncă':'';
+}
+
+function updateActions(){
+  const cfg=GS.cfg; if(!cfg) return;
+  const el=document.getElementById('actionsEl'); if(!el) return;
+  const inAction=GS.phase==='action'&&GS.turn==='p';
+  const inDraw=GS.phase==='draw'&&GS.turn==='p';
+  const dw=cfg.knock?handDeadwood(GS.pHand,cardGval):0;
+  el.innerHTML='';
+  const add=(lbl,fn,cls,disabled=false,id='')=>{
+    const b=document.createElement('button');
+    b.className='btn '+cls; b.textContent=lbl; b.disabled=disabled;
+    if(id) b.id=id;
+    b.addEventListener('click',fn); el.appendChild(b);
+  };
+  add('▶ Restart',()=>initGame(cfg.id),'btn-s');
+  if(!cfg.knock){
+    add('🎴 Meld',pMeld,'btn-p',!inAction);
+    if(cfg.tableMelds) add('➕ Extinde',pExtend,'btn-s',!inAction||!GS.pEntered);
+    add('↩ Aruncă',pDiscard,'btn-d',!inAction&&!inDraw);
+  } else {
+    add('✊ Knock',pKnock,'btn-p',!inAction||dw>GS.knockThreshold,'btnKnock');
+    add('⭐ Gin!',pGin,'btn-p',!inAction||dw!==0,'btnGin');
+    add('↩ Aruncă',pDiscard,'btn-d',!inAction);
+  }
+  add('⇅ Sort',()=>{
+    GS.pHand.sort((a,b)=>{
+      if(a.isTile&&b.isTile) return a.color!==b.color?a.color-b.color:a.num-b.num;
+      if(a.joker&&!b.joker) return 1; if(!a.joker&&b.joker) return -1;
+      return a.suit!==b.suit?a.suit-b.suit:a.rank-b.rank;
+    }); renderBoard();
+  },'btn-s',GS.phase==='idle');
+}
+
+function setStatus(phase,msg){
+  const phaseLabels={idle:'—',draw:'Trage',action:'Acțiune',ai:'AI gândește'};
+  document.getElementById('phaseEl').textContent=phaseLabels[phase]||phase;
+  document.getElementById('msgEl').textContent=msg;
+  document.getElementById('scEl').textContent=`Runda ${GS.round} · Stoc: ${GS.stock.length}`;
+}
+
+/* ─── WIN / MODAL ─── */
+function winGame(who,msg){
+  GS.phase='idle'; clearTimeout(GS.aiTimer);
+  renderBoard();
+  showModal(
+    who==='p'?'🏆':'🤖',
+    who==='p'?'Ai câștigat!':'AI a câștigat',
+    msg, ()=>initGame(GS.cfg.id)
+  );
+}
+function showModal(icon,title,msg,restart){
+  document.getElementById('winIcon').textContent=icon;
+  document.getElementById('winTitle').textContent=title;
+  document.getElementById('winMsg').textContent=msg;
+  document.getElementById('winModal').classList.remove('hidden');
+  document.getElementById('btnWinRestart')._fn=restart;
+}
+document.getElementById('btnWinClose').addEventListener('click',()=>document.getElementById('winModal').classList.add('hidden'));
+document.getElementById('btnWinRestart').addEventListener('click',()=>{
+  document.getElementById('winModal').classList.add('hidden');
+  const fn=document.getElementById('btnWinRestart')._fn;
+  if(fn) fn();
+});
+
+/* ═══════════════ GAME SELECTOR + ATLAS + INIT ════════════════ */
+const CATALOG=[
+{id:'remi',icon:'🃏',title:'Remi Românesc',origin:'România · 2 pachete + 4 jokeri',
+ desc:'Varianta locală cu 108 cărți. Prima melduire necesită ≥51 puncte (intrarea). Câștigă primul fără cărți.',
+ tags:['jucabil','2 pachete','jokeri','intrare 51pt'],play:'remi'},
+{id:'scala40',icon:'🇮🇹',title:'Scala 40 / Scala Quaranta',origin:'Italia · 1 pachet + 2 jokeri',
+ desc:'Varianta italiană. Intrare ≥40pt. 13 cărți în mână. Popular în Italia și sudul Europei.',
+ tags:['jucabil','40pt','Italia','mediterana'],play:'scala40'},
+{id:'kalooki',icon:'🌊',title:'Kalooki / Kaluki',origin:'Jamaica, Malta, UK',
+ desc:'2 pachete + 2 jokeri, 13 cărți. Joker-ul necesită ≥2 cărți naturale per meld. Caraibe și comunități evreiești.',
+ tags:['jucabil','13 cărți','joker restricționat','Caraibe'],play:'kalooki'},
+{id:'rummy500',icon:'🎯',title:'Rummy 500',origin:'SUA · 1910 · 52 cărți',
+ desc:'Scor acumulativ. 7 cărți, poți lua orice carte din discard. Primul la 500 puncte câștigă.',
+ tags:['jucabil','500pt','scor acumulativ','SUA'],play:'rummy500'},
+{id:'dummyrummy',icon:'🎭',title:'Dummy Rummy',origin:'SUA · variantă',
+ desc:'1 pachet + 2 jokeri. Joker-ul poate fi furat din melduri cu cartea reală. Dinamică specială.',
+ tags:['jucabil','joker furat','dinamică'],play:'dummyrummy'},
+{id:'carousel',icon:'🎠',title:'Carousel Rummy',origin:'Internațional · modern',
+ desc:'Meldurile de pe masă pot fi rearanjate liber în orice tură. Stimulează creativitatea.',
+ tags:['jucabil','rearanjare','flexibil','modern'],play:'carousel'},
+{id:'gin',icon:'♠',title:'Gin Rummy',origin:'SUA · 1909 · E.T.Baker',
+ desc:'Clasicul american. 10 cărți, knock ≤10pt, gin=0pt cu bonus +25. Primul la 100pt.',
+ tags:['jucabil','knock','gin','deadwood','SUA'],play:'gin'},
+{id:'oklahoma',icon:'🤠',title:'Oklahoma Gin',origin:'SUA · variantă Gin',
+ desc:'Prag variabil: prima carte aruncată = pragul de knock. Pică = scor dublu. As = Gin only.',
+ tags:['jucabil','prag variabil','Pică dublu','As=Gin'],play:'oklahoma'},
+{id:'hollywood',icon:'🎬',title:'Hollywood Gin',origin:'Hollywood · variantă Gin',
+ desc:'3 partide paralele. Scorul fiecărei mâini se adaugă progresiv în jocurile 1, 2, 3.',
+ tags:['jucabil','3 partide','paralel','progresiv'],play:'hollywood'},
+{id:'conquian',icon:'🌵',title:'Conquian',origin:'Mexic · sec. XIX · originar Rummy',
+ desc:'Părintele tuturor jocurilor Rummy! 40 cărți, 8 în mână. Pot forța adversarul să ia o carte.',
+ tags:['jucabil','originar','40 cărți','Mexic','istoric'],play:'conquian'},
+{id:'contract',icon:'📜',title:'Contract Rummy (Liverpool)',origin:'Anglia · sec. XX',
+ desc:'7 mâini cu contracte predefinite crescânde: 2 seturi → … → 3 run-uri. Structurat ca turneu.',
+ tags:['jucabil','contract','7 mâini','Anglia'],play:'contract'},
+{id:'shanghai',icon:'🏙',title:'Shanghai Rummy',origin:'Internațional · variantă Contract',
+ desc:'10 mâini cu contracte + cumpărare din discard. Mâini de 10-14 cărți. Mai complex decât Liverpool.',
+ tags:['jucabil','10 mâini','cumpărare','complex'],play:'shanghai'},
+{id:'phase10',icon:'🔢',title:'Phase 10',origin:'SUA · 1982 · Kenneth Johnson',
+ desc:'10 faze predefinite completate în ordine. De la seturi la run-uri lungi la cărți monocrome.',
+ tags:['jucabil','faze','10 etape','accesibil','familie'],play:'phase10'},
+{id:'canasta',icon:'🌹',title:'Canasta Clasică',origin:'Argentina/Uruguay · ~1939',
+ desc:'Formezi canaste (7 cărți de același rank). Pură=500pt, mixtă=300pt. Primul la 5000pt.',
+ tags:['jucabil','canastă','7 cărți','Argentina','5000pt'],play:'canasta'},
+{id:'amcanasta',icon:'🇺🇸',title:'American Canasta',origin:'SUA · post-1949',
+ desc:'Varianta nord-americană. 3 roșii bonus, 3 negre penalitate. Reguli ușor modificate față de clasic.',
+ tags:['jucabil','canastă','SUA','3 roșii','3 negre'],play:'amcanasta'},
+{id:'bolivia',icon:'🌺',title:'Canasta Boliviană',origin:'Bolivia · variantă',
+ desc:'3 pachete. Samba = secvență de 7 același suit = 1500pt. Primul la 15000pt. Cea mai complexă.',
+ tags:['jucabil','samba','3 pachete','15000pt','Bolivia'],play:'bolivia'},
+{id:'okey',icon:'🇹🇷',title:'Okey',origin:'Turcia · plăcuțe tile',
+ desc:'106 plăcuțe. Okey (joker) determinat aleatoriu. Extrem de popular în Turcia și diaspora română.',
+ tags:['jucabil','plăcuțe','Turcia','Okey','diaspora'],play:'okey'},
+{id:'rummikub',icon:'🧩',title:'Rummikub',origin:'Israel · 1977 · E.Hertzano',
+ desc:'Varianta comercializată cu plăcuțe. Intrare ≥30pt. Poți rearanja masa. 300M exemplare vândute.',
+ tags:['jucabil','plăcuțe','Israel','comercial','rearanjare'],play:'rummikub'},
+{id:'mahjong',icon:'🀄',title:'Mahjong (simplificat)',origin:'China · sec. XIX',
+ desc:'108 plăcuțe (3 culori × 9). Câștigă cu 4 melduri + 1 pereche. Versiune simplificată pentru atelier.',
+ tags:['jucabil','plăcuțe','China','pung','chow'],play:'mahjong'},
+];
+
+function renderAtlas(){
+  const grid=document.getElementById('atlasGrid'); grid.innerHTML='';
+  CATALOG.forEach(v=>{
+    const el=document.createElement('div'); el.className='vcard';
+    el.innerHTML=`<div class="vcard-head"><div class="vcard-icon">${v.icon}</div>
+      <div><div class="vcard-title">${v.title}</div><div class="vcard-origin">${v.origin}</div></div></div>
+      <div class="vcard-desc">${v.desc}</div>
+      <div class="vcard-tags">${v.tags.map(t=>`<span class="vtag${t==='jucabil'?' play':''}">${t}</span>`).join('')}</div>
+      ${v.play?`<button class="vcard-btn" data-play="${v.play}">▶ Joacă</button>`:''}`;
+    if(v.play){
+      el.querySelector('.vcard-btn').addEventListener('click',e=>{
+        e.stopPropagation(); launchGame(v.play);
+      });
+    }
+    grid.appendChild(el);
+  });
+}
+
+function renderGameSelector(){
+  const grid=document.getElementById('gameSelGrid'); if(!grid) return;
+  grid.innerHTML='';
+  const groups={'table':'🃏 Cu masă comună','knock':'✊ Knock / Gin','contract':'📜 Contract','phase':'🔢 Faze','canasta':'🌹 Canasta','tile':'🎴 Plăcuțe'};
+  let lastGroup='';
+  GAME_ORDER.forEach(id=>{
+    const g=GAMES[id]; if(!g) return;
+    if(g.group!==lastGroup){
+      const sep=document.createElement('div');
+      sep.style.cssText='grid-column:1/-1;padding:6px 0 2px;font-size:11px;color:var(--muted);font-family:"JetBrains Mono",monospace;border-bottom:1px solid var(--cborder);margin-top:6px';
+      sep.textContent=groups[g.group]||g.group;
+      grid.appendChild(sep);
+      lastGroup=g.group;
+    }
+    const btn=document.createElement('div'); btn.className='gsel-btn';
+    btn.innerHTML=`<div class="gsel-icon">${g.icon}</div><div class="gsel-name">${g.name}</div>`;
+    btn.addEventListener('click',()=>launchGame(id));
+    grid.appendChild(btn);
+  });
+}
+
+function launchGame(id){
+  // Switch to play tab
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelector('[data-tab="play"]').classList.add('active');
+  document.getElementById('tab-play').classList.add('active');
+  // Show board
+  document.getElementById('gameSel').classList.add('hidden');
+  document.getElementById('gameBoard').classList.remove('hidden');
+  const cfg=GAMES[id]; if(!cfg) return;
+  document.getElementById('gameName').textContent=cfg.icon+' '+cfg.name;
+  // Help
+  document.getElementById('helpTitle').textContent='📖 '+cfg.name+' — Reguli';
+  const ul=document.getElementById('helpList'); ul.innerHTML='';
+  (cfg.rules||[]).forEach(r=>{const li=document.createElement('li');li.innerHTML=r;ul.appendChild(li);});
+  // Oklahoma: show dynamic threshold
+  if(id==='oklahoma'){
+    const badge=document.getElementById('contractBadge');
+    badge.classList.remove('hidden');
+    badge.textContent='Prag knock: ?';
+  } else document.getElementById('contractBadge').classList.add('hidden');
+  // Stock click
+  document.getElementById('stockEl').onclick=pDrawStock;
+  document.getElementById('discardTopEl').onclick=()=>{if(GS.phase==='draw'&&GS.turn==='p')pDrawDiscard();};
+  initGame(id);
+}
+
+document.getElementById('btnBack').addEventListener('click',()=>{
+  clearTimeout(GS.aiTimer);
+  document.getElementById('gameSel').classList.remove('hidden');
+  document.getElementById('gameBoard').classList.add('hidden');
+});
+
+// Tab switching
+document.querySelectorAll('.tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('tab-'+tab.dataset.tab).classList.add('active');
+  });
+});
+
+document.addEventListener('DOMContentLoaded',()=>{
+  renderAtlas();
+  renderGameSelector();
+});
+
+</script>
+</body>
+</html>
