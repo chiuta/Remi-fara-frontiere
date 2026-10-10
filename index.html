@@ -55,8 +55,8 @@
 
 :root{
   --bg:#0d0a08;--bg2:#141008;--bg3:#1c1508;--bg4:#221a0a;--bg5:#2a2010;
-  --gold:#c8832a;--gold2:#e8c87a;--red:#8b1a1a;--red2:#c0392b;
-  --cream:#e8e0d0;--muted:#7a6e60;--dim:#403830;
+  --gold:#c8832a;--gold2:#e8c87a;--red:#8b1a1a;--red2:#e4695c;
+  --cream:#e8e0d0;--muted:#948775;--dim:#403830;
   --card:#f5ede0;--cborder:rgba(200,131,42,.35);
   --r:6px;--r2:10px;--tr:.18s ease;
 }
@@ -170,7 +170,7 @@ body{background:var(--bg);color:var(--cream);font-family:'Lora',Georgia,serif;mi
 .tile:hover:not(.back-tile){transform:translateY(-7px)}
 .tile.sel{outline:3px solid var(--gold);transform:translateY(-14px);box-shadow:0 8px 22px rgba(200,131,42,.5)}
 .tile .tn{font-size:34px;font-weight:700;line-height:1}
-.tile .ts{font-size:11px;margin-top:2px;opacity:.7}
+.tile .ts{font-size:11px;margin-top:2px;opacity:.92}
 .tile.tile-red{background:#f0dada;border:2px solid #c0392b;color:#8b0000}
 .tile.tile-blue{background:#d8e4f0;border:2px solid #1a5a9b;color:#0a3060}
 .tile.tile-black{background:#d4d4d4;border:2px solid #2a2a3e;color:#1a1a2e}
@@ -197,7 +197,7 @@ body{background:var(--bg);color:var(--cream);font-family:'Lora',Georgia,serif;mi
 .piles-row{display:flex;gap:14px;align-items:flex-end;padding:8px 10px}
 .pile-wrap{display:flex;flex-direction:column;align-items:center;gap:4px}
 .pile-label2{font-size:9px;color:var(--muted);font-family:'JetBrains Mono',monospace}
-.empty-pile{width:76px;height:108px;border:2px dashed var(--cborder);border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--dim);cursor:pointer;transition:border-color var(--tr),color var(--tr)}
+.empty-pile{width:76px;height:108px;border:2px dashed var(--cborder);border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--muted);cursor:pointer;transition:border-color var(--tr),color var(--tr)}
 .empty-pile:hover{border-color:var(--gold);color:var(--gold)}
 .empty-tile-pile{width:64px;height:90px;border:2px dashed var(--cborder);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--dim);cursor:pointer;transition:border-color var(--tr),color var(--tr)}
 .empty-tile-pile:hover{border-color:var(--gold);color:var(--gold)}
@@ -273,7 +273,7 @@ body{background:var(--bg);color:var(--cream);font-family:'Lora',Georgia,serif;mi
   </div>
   <div class="hdr-badge" id="hdr-badge">19 variante</div>
 </header>
-<nav class="tabs" role="tablist">
+<nav class="tabs" aria-label="Secțiuni">
   <button class="tab active" data-tab="atlas">📚 Atlas (19)</button>
   <button class="tab" data-tab="play">🎮 Joacă</button>
 </nav>
@@ -1539,7 +1539,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 @media (max-width:560px){#tf-donate .tf-lbl{display:none}}
 @media print{#tf-donate{display:none}}
 </style>
-<input type="checkbox" id="tf-donate-cb" class="tf-cb" aria-hidden="true">
+<input type="checkbox" id="tf-donate-cb" class="tf-cb" aria-hidden="true" tabindex="-1">
 <div class="tf-panel">
 <span class="tf-lbl">Sprijină:</span>
 <a class="tf-b tf-pat" href="https://www.patreon.com/c/alexio_tf" target="_blank" rel="noopener" aria-label="Sprijină pe Patreon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="15.4" cy="9.4" r="6.6" fill="currentColor"/><rect x="2.4" y="2.4" width="3.7" height="19.2" fill="currentColor"/></svg>Patreon</a>
