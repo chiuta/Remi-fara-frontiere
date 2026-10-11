@@ -1427,7 +1427,8 @@ function renderGameSelector(){
   grid.innerHTML='';
   const groups={'table':'🃏 Cu masă comună','knock':'✊ Knock / Gin','contract':'📜 Contract','phase':'🔢 Faze','canasta':'🌹 Canasta','tile':'🎴 Plăcuțe'};
   let lastGroup='';
-  GAME_ORDER.forEach(id=>{
+  const gOrder=Object.keys(groups);
+  [...GAME_ORDER].sort((x,y)=>gOrder.indexOf(GAMES[x]&&GAMES[x].group)-gOrder.indexOf(GAMES[y]&&GAMES[y].group)).forEach(id=>{
     const g=GAMES[id]; if(!g) return;
     if(g.group!==lastGroup){
       const sep=document.createElement('div');

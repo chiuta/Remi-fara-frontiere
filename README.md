@@ -47,6 +47,10 @@ CC0 1.0 Universal (domeniu public) — vezi fișierul LICENSE
 
 2026-10-10: verificat că nu există cereri de rețea sau stocare; adversarul „AI" este un algoritm euristic în fișier (fără model ML). Numele „Rummikub" și „Phase 10" sunt mărci ale unor terți (folosite aici ca nume de variante de joc); regulile din Mahjong sunt simplificate. Corectate contrastul și semantica de navigare.
 
+## Mărci și nume comerciale
+
+Numele „Rummikub", „Phase 10", „Canasta", „Okey" etc. sunt nume comerciale sau mărci ale deținătorilor lor; aici sunt folosite descriptiv, ca nume ale unor variante de joc, fără afilierea sau aprobarea acestora. Aplicația nu include materiale grafice sau reguli oficiale ale produselor comerciale (regulile sunt aproximări simplificate; vezi „Audit").
+
 ## Autor
 
 Alexio — Alexandru-Ionuț Chiuță. Contact: alexio@trom.tf. Aplicația menționează Atlantykron și Centrul StrING în subtitlu.
