@@ -21,6 +21,7 @@ Remi fără frontiere (subtitlu în aplicație: „Atlas · 19 variante jucabile
 - Elemente specifice: contractul curent (Contract/Shanghai), fazele (Phase 10), indicatorul Okey, praguri de knock / gin.
 - Statistici locale pe variantă (victorii/înfrângeri), afișate în selectorul de variante, cu buton „Șterge statisticile”.
 - Joc contra AI; ecran de final cu „▶ Joacă din nou" și „✕ Închide".
+- Îndrumare contextuală în tura ta: după fiecare selecție de cărți, panoul de ajutor spune ce poți face (aruncă, extinde, dacă selecția formează un meld); starea selecției este expusă și cititoarelor de ecran (`aria-pressed`).
 - Elementele interactive principale (stoc, aruncate) sunt accesibile și de la tastatură (Enter / Spațiu).
 
 ## Manual de utilizare
@@ -55,6 +56,10 @@ CC0 1.0 Universal (domeniu public) — vezi fișierul LICENSE
 Numele „Rummikub", „Phase 10", „Canasta", „Okey" etc. sunt nume comerciale sau mărci ale deținătorilor lor; aici sunt folosite descriptiv, ca nume ale unor variante de joc, fără afilierea sau aprobarea acestora. Aplicația nu include materiale grafice sau reguli oficiale ale produselor comerciale (regulile sunt aproximări simplificate; vezi „Audit").
 
 ## Istoric / Changelog
+
+### 11 octombrie 2026 (runda 7)
+- Îmbunătățit: mesajul de stare rămânea „Alege cărți și meldează…”; acum zona de ajutor reacționează la selecție (aruncă / extinde / meld valid sau ce lipsește). Selecția cărților are `aria-pressed`, iar zona de ajutor este `aria-live`.
+- Reparat: rangul din colțul de jos al cărților roșii/negre avea text deschis pe fond crem (contrast insuficient, găsit de axe-core în joc).
 
 ### 11 octombrie 2026 (runda 6)
 - Adăugat: statistici locale (victorii/înfrângeri pe variantă) cu resetare.
