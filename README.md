@@ -6,6 +6,8 @@ Atlas de rummy cu 19 variante jucabile contra AI, într-un singur fișier HTML.
 
 ![Captura de ecran](screenshot.png)
 
+**Ultima actualizare:** 11 octombrie 2026
+
 ## Ce este
 
 Remi fără frontiere (subtitlu în aplicație: „Atlas · 19 variante jucabile · Atlantykron · Centrul StrING") este un atlas al jocurilor din familia rummy, în care fiecare variantă poate fi jucată împotriva unui adversar AI. Interfața este în română, cu piese și cărți mari.
@@ -14,7 +16,7 @@ Remi fără frontiere (subtitlu în aplicație: „Atlas · 19 variante jucabile
 
 - Fila **Atlas (19)**: fișe pentru fiecare variantă, cu origine, descriere, etichete și butonul „▶ Joacă".
 - Fila **Joacă**: selector de variantă, grupat pe tipuri: *Cu masă comună*, *Knock / Gin*, *Contract*, *Faze*, *Canasta*, *Plăcuțe*.
-- Cele 19 variante: Remi Românesc, Scala 40, Kalooki, Rummy 500, Dummy Rummy, Carousel Rummy, Gin Rummy, Oklahoma Gin, Hollywood Gin, Conquian, Contract Rummy, Shanghai Rummy, Phase 10, Canasta Clasică, American Canasta, Canasta Boliviană, Okey, Rummikub, Mahjong (simplificat).
+- Cele 19 variante: Remi Românesc, Scala 40, Kalooki, Rummy 500, Dummy Rummy, Carousel Rummy, Gin Rummy, Oklahoma Gin, Hollywood Gin, Conquian, Contract Rummy, Shanghai Rummy, Phase 10, Canasta Clasică, American Canasta, Canasta Boliviană, Okey (simplificat), Rummikub (simplificat), Mahjong (simplificat).
 - Tablă de joc cu stoc, grămadă de aruncate, melduri pe masă, mâna jucătorului, scoruri (Tu / AI), mesaje de stare și text de ajutor cu regulile variantei curente.
 - Elemente specifice: contractul curent (Contract/Shanghai), fazele (Phase 10), indicatorul Okey, praguri de knock / gin.
 - Joc contra AI; ecran de final cu „▶ Joacă din nou" și „✕ Închide".
@@ -50,6 +52,14 @@ CC0 1.0 Universal (domeniu public) — vezi fișierul LICENSE
 ## Mărci și nume comerciale
 
 Numele „Rummikub", „Phase 10", „Canasta", „Okey" etc. sunt nume comerciale sau mărci ale deținătorilor lor; aici sunt folosite descriptiv, ca nume ale unor variante de joc, fără afilierea sau aprobarea acestora. Aplicația nu include materiale grafice sau reguli oficiale ale produselor comerciale (regulile sunt aproximări simplificate; vezi „Audit").
+
+## Istoric / Changelog
+
+### 11 octombrie 2026
+- Reparat: Okey și Rummikub sunt acum etichetate „(simplificat)” în aplicație, iar textele regulilor nu mai promit funcții neimplementate (rearanjarea mesei, închiderea 14+1, mâna Mahjong 4+1): se indică regula originală și ce este implementat efectiv (aceeași listă ca nota „Implementare simplificată”). Același lucru pentru Carousel Rummy.
+- Reparat: accesibilitate: `<main>`, titlu h1, ordine corectă a titlurilor, mâna jucătorului focalizabilă de la tastatură, fereastra de final cu rol dialog; 0 violări axe-core la 1280 și 360 px, inclusiv în ecranul de joc.
+- Verificat: toate cele 19 variante pornesc fără erori JS.
+- Neimplementat (rămâne): motor cu plăcuțe pe masă rearanjabilă pentru Rummikub/Okey și condiția de câștig reală de Mahjong.
 
 ## Autor
 

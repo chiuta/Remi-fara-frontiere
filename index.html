@@ -220,7 +220,7 @@ body{background:var(--bg);color:var(--cream);font-family:'Lora',Georgia,serif;mi
 
 /* HELP */
 .help{background:var(--bg3);border:1px solid var(--cborder);border-radius:var(--r);padding:10px 12px}
-.help h3{font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--gold2);margin-bottom:5px}
+.help h2{font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--gold2);margin-bottom:5px}
 .help ul{padding-left:14px;font-size:12px;color:var(--cream);line-height:1.7}
 .help em{color:var(--gold);font-style:normal;font-weight:500}
 
@@ -268,7 +268,7 @@ body{background:var(--bg);color:var(--cream);font-family:'Lora',Georgia,serif;mi
 <header class="hdr">
   <div class="hdr-logo">🃏</div>
   <div style="flex:1;min-width:0">
-    <div class="hdr-title">Remi fără frontiere</div>
+    <h1 class="hdr-title" style="margin:0">Remi fără frontiere</h1>
     <div class="hdr-sub">Atlas · 19 variante jucabile · Atlantykron · Centrul StrING</div>
   </div>
   <div class="hdr-badge" id="hdr-badge">19 variante</div>
@@ -278,6 +278,7 @@ body{background:var(--bg);color:var(--cream);font-family:'Lora',Georgia,serif;mi
   <button class="tab" data-tab="play">🎮 Joacă</button>
 </nav>
 
+<main id="main">
 <!-- ═══ ATLAS ═══ -->
 <div class="panel active" id="tab-atlas">
   <div class="atlas-grid" id="atlasGrid"></div>
@@ -357,19 +358,20 @@ body{background:var(--bg);color:var(--cream);font-family:'Lora',Georgia,serif;mi
           <span class="zcount zentree hidden" id="entreeOkEl">INTRARE ✓</span>
           <span class="zcount" id="dwEl" style="color:var(--gold)"></span>
         </div>
-        <div class="hand" id="pHandEl"></div>
+        <div class="hand" id="pHandEl" tabindex="0" role="group" aria-label="Mâna ta"></div>
       </div>
       <div class="actions" id="actionsEl"></div>
     </div>
     <div class="help" id="helpEl">
-      <h3 id="helpTitle">—</h3>
+      <h2 id="helpTitle">—</h2>
       <ul id="helpList"></ul>
     </div>
   </div>
 </div>
 
+</main>
 <!-- Modal -->
-<div class="modal hidden" id="winModal">
+<div class="modal hidden" id="winModal" role="dialog" aria-modal="true" aria-labelledby="winTitle">
   <div class="modal-box">
     <div class="modal-icon" id="winIcon">🏆</div>
     <div class="modal-title" id="winTitle">—</div>
@@ -620,7 +622,7 @@ const GAMES={
   decks:1,jokers:0,handSize:10,tableMelds:true,entree:0,
   knock:false,valFn:'gval',target:null,color:'#c86a2a',group:'table',
   carousel:true,
-  rules:['1 pachet, 10 cărți','Meldurile de pe masă pot fi <em>rearanjate</em> liber','Toate meldurile trebuie să rămână valide la final de tură']},
+  rules:['1 pachet, 10 cărți','Regula originală: meldurile de pe masă pot fi <em>rearanjate</em> liber (în această versiune poți doar să le extinzi)','Toate meldurile trebuie să rămână valide la final de tură']},
  gin:{id:'gin',name:'Gin Rummy',icon:'♠',
   decks:1,jokers:0,handSize:10,tableMelds:false,entree:0,
   knock:true,knockThreshold:10,gin:true,ginBonus:25,undercutBonus:25,
@@ -701,21 +703,21 @@ const GAMES={
   knock:false,valFn:'canasta',target:15000,color:'#8bc82a',group:'canasta',
   canastaRules:true,sambaAllowed:true,
   rules:['3 pachete + 6 jokeri','<em>Samba</em> = secvență de 7 cărți de același suit = 1500pt','Jokers nu pot fi folosiți în samba','Primul la 15000 puncte câștigă']},
- okey:{id:'okey',name:'Okey',icon:'🇹🇷',
+ okey:{id:'okey',name:'Okey (simplificat)',icon:'🇹🇷',
   tileGame:true,tileDeck:'okey',handSize:14,tableMelds:true,entree:0,
   knock:false,valFn:'tile',target:null,color:'#c8a02a',group:'tile',
   okeyRules:true,
-  rules:['106 plăcuțe (4 culori × 13 numere × 2 + 2 jokeri)','O plăcuță indicatoare determină <em>Okey-ul</em> (plăcuța imediat superioară)','Câștigă primul care aranjează toate 14 plăcuțe în 4 grupuri + 2 Okey']},
- rummikub:{id:'rummikub',name:'Rummikub',icon:'🧩',
+  rules:['106 plăcuțe (4 culori × 13 numere × 2 + 2 jokeri)','O plăcuță indicatoare determină <em>Okey-ul</em> (plăcuța imediat superioară)','Regula originală: câștigă primul care aranjează toate 14 plăcuțe în grupuri valide; aici se aplică meldurile generice']},
+ rummikub:{id:'rummikub',name:'Rummikub (simplificat)',icon:'🧩',
   tileGame:true,tileDeck:'okey',handSize:14,tableMelds:true,entree:30,
   knock:false,valFn:'tile',target:null,color:'#2a7ac8',group:'tile',
   rummikubRules:true,carousel:true,
-  rules:['106 plăcuțe, 14 fiecare (ca Okey)','Intrare ≥ <em>30 puncte</em> din cărțile tale proprii','Poți rearanja toate plăcuțele de pe masă','Câștigă primul fără plăcuțe în mână']},
+  rules:['106 plăcuțe, 14 fiecare (ca Okey)','Intrare ≥ <em>30 puncte</em> din cărțile tale proprii','Regula originală permite rearanjarea plăcuțelor de pe masă; aici poți doar extinde meldurile existente','Câștigă primul fără plăcuțe în mână']},
  mahjong:{id:'mahjong',name:'Mahjong (simplificat)',icon:'🀄',
   tileGame:true,tileDeck:'mahjong',handSize:13,tableMelds:false,entree:0,
   knock:false,valFn:'tile',target:null,color:'#c82a5a',group:'tile',
   mahjongRules:true,
-  rules:['108 plăcuțe (3 culori × 9 numere × 4)','Mâna câștigătoare: <em>4 melduri + 1 pereche</em>','Meld = 3 identice (pung) sau 3 consecutive același suit (chow)','Declari câștig când mâna e completă după o tragere']}
+  rules:['108 plăcuțe (3 culori × 9 numere × 4)','Regula originală: mâna câștigătoare are <em>4 melduri + 1 pereche</em> (neimplementată aici; se aplică meldurile generice)','Meld = 3 identice (pung) sau 3 consecutive același suit (chow)','Obiectiv simplificat: formezi melduri din mână (vezi nota de implementare de mai jos)']}
 };
 const GAME_ORDER=['remi','scala40','kalooki','rummy500','dummyrummy','carousel',
  'gin','oklahoma','hollywood','conquian',
@@ -1361,8 +1363,8 @@ const CATALOG=[
  desc:'1 pachet + 2 jokeri. Joker-ul poate fi furat din melduri cu cartea reală. Dinamică specială.',
  tags:['jucabil','joker furat','dinamică'],play:'dummyrummy'},
 {id:'carousel',icon:'🎠',title:'Carousel Rummy',origin:'Internațional · modern',
- desc:'Meldurile de pe masă pot fi rearanjate liber în orice tură. Stimulează creativitatea.',
- tags:['jucabil','rearanjare','flexibil','modern'],play:'carousel'},
+ desc:'Regula originală permite rearanjarea liberă a meldurilor de pe masă în orice tură; aici este implementată doar extinderea lor.',
+ tags:['jucabil','simplificat','flexibil','modern'],play:'carousel'},
 {id:'gin',icon:'♠',title:'Gin Rummy',origin:'SUA · 1909 · E.T.Baker',
  desc:'Clasicul american. 10 cărți, knock ≤10pt, gin=0pt cu bonus +25. Primul la 100pt.',
  tags:['jucabil','knock','gin','deadwood','SUA'],play:'gin'},
@@ -1393,14 +1395,14 @@ const CATALOG=[
 {id:'bolivia',icon:'🌺',title:'Canasta Boliviană',origin:'Bolivia · variantă',
  desc:'3 pachete. Samba = secvență de 7 același suit = 1500pt. Primul la 15000pt. Cea mai complexă.',
  tags:['jucabil','samba','3 pachete','15000pt','Bolivia'],play:'bolivia'},
-{id:'okey',icon:'🇹🇷',title:'Okey',origin:'Turcia · plăcuțe tile',
- desc:'106 plăcuțe. Okey (joker) determinat aleatoriu. Extrem de popular în Turcia și diaspora română.',
+{id:'okey',icon:'🇹🇷',title:'Okey (simplificat)',origin:'Turcia · plăcuțe tile',
+ desc:'106 plăcuțe. Okey (joker) determinat aleatoriu. Extrem de popular în Turcia și diaspora română. Versiune simplificată: motorul se comportă ca Rummikub fără închiderea 14+1.',
  tags:['jucabil','plăcuțe','Turcia','Okey','diaspora'],play:'okey'},
-{id:'rummikub',icon:'🧩',title:'Rummikub',origin:'Israel · 1977 · E.Hertzano',
- desc:'Varianta comercializată cu plăcuțe. Intrare ≥30pt. Poți rearanja masa. 300M exemplare vândute.',
- tags:['jucabil','plăcuțe','Israel','comercial','rearanjare'],play:'rummikub'},
+{id:'rummikub',icon:'🧩',title:'Rummikub (simplificat)',origin:'Israel · 1977 · E.Hertzano',
+ desc:'Varianta comercializată cu plăcuțe. Intrare ≥30pt. Versiune simplificată: pe masă poți doar extinde meldurile (rearanjarea nu e implementată).',
+ tags:['jucabil','plăcuțe','Israel','comercial','simplificat'],play:'rummikub'},
 {id:'mahjong',icon:'🀄',title:'Mahjong (simplificat)',origin:'China · sec. XIX',
- desc:'108 plăcuțe (3 culori × 9). Câștigă cu 4 melduri + 1 pereche. Versiune simplificată pentru atelier.',
+ desc:'108 plăcuțe (3 culori × 9). Regula originală: câștigi cu 4 melduri + 1 pereche. Versiune simplificată, cu melduri generice.',
  tags:['jucabil','plăcuțe','China','pung','chow'],play:'mahjong'},
 ];
 
@@ -1520,7 +1522,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 </script>
 <!-- tf-donate: sprijin voluntar (Patreon + Buy Me a Coffee) — self-contained, fără resurse externe, fără JS -->
-<div id="tf-donate" aria-label="Sprijină autorul">
+<aside id="tf-donate" aria-label="Sprijină autorul">
 <style>
 #tf-donate{position:fixed;right:14px;bottom:14px;z-index:2147483600;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1}
 #tf-donate *{box-sizing:border-box}
@@ -1548,6 +1550,6 @@ document.addEventListener('DOMContentLoaded',()=>{
 <label for="tf-donate-cb" class="tf-x" title="Ascunde" aria-label="Ascunde">✕</label>
 </div>
 <label for="tf-donate-cb" class="tf-open" title="Sprijină" aria-label="Sprijină">♥</label>
-</div>
+</aside>
 </body>
 </html>
