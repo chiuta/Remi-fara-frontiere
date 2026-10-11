@@ -19,6 +19,7 @@ Remi fără frontiere (subtitlu în aplicație: „Atlas · 19 variante jucabile
 - Cele 19 variante: Remi Românesc, Scala 40, Kalooki, Rummy 500, Dummy Rummy, Carousel Rummy, Gin Rummy, Oklahoma Gin, Hollywood Gin, Conquian, Contract Rummy, Shanghai Rummy, Phase 10, Canasta Clasică, American Canasta, Canasta Boliviană, Okey (simplificat), Rummikub (simplificat), Mahjong (simplificat).
 - Tablă de joc cu stoc, grămadă de aruncate, melduri pe masă, mâna jucătorului, scoruri (Tu / AI), mesaje de stare și text de ajutor cu regulile variantei curente.
 - Elemente specifice: contractul curent (Contract/Shanghai), fazele (Phase 10), indicatorul Okey, praguri de knock / gin.
+- Statistici locale pe variantă (victorii/înfrângeri), afișate în selectorul de variante, cu buton „Șterge statisticile”.
 - Joc contra AI; ecran de final cu „▶ Joacă din nou" și „✕ Închide".
 - Elementele interactive principale (stoc, aruncate) sunt accesibile și de la tastatură (Enter / Spațiu).
 
@@ -33,7 +34,7 @@ Remi fără frontiere (subtitlu în aplicație: „Atlas · 19 variante jucabile
 
 ## Confidențialitate și rețea
 
-- Aplicația nu folosește `localStorage`, IndexedDB sau cookie-uri și nu face apeluri de rețea (CSP cu `connect-src 'self'`); fonturile sunt încorporate în fișier.
+- Singura stocare locală: contorul de victorii/înfrângeri pe variantă în `localStorage` (cheia `remi-ff:stat:v1`), pe dispozitivul tău; fără IndexedDB sau cookie-uri. Aplicația nu face apeluri de rețea (CSP cu `connect-src 'self'`, scriptul permis doar pe bază de hash); fonturile sunt încorporate în fișier.
 - Linkurile „Patreon" și „Coffee" se deschid doar la clic.
 - Fără analitice.
 
@@ -47,13 +48,17 @@ CC0 1.0 Universal (domeniu public) — vezi fișierul LICENSE
 
 ## Audit
 
-2026-10-10: verificat că nu există cereri de rețea sau stocare; adversarul „AI" este un algoritm euristic în fișier (fără model ML). Numele „Rummikub" și „Phase 10" sunt mărci ale unor terți (folosite aici ca nume de variante de joc); regulile din Mahjong sunt simplificate. Corectate contrastul și semantica de navigare.
+2026-10-10: verificat că nu există cereri de rețea sau stocare (la acea dată; din runda 6 există doar contorul local de statistici); adversarul „AI" este un algoritm euristic în fișier (fără model ML). Numele „Rummikub" și „Phase 10" sunt mărci ale unor terți (folosite aici ca nume de variante de joc); regulile din Mahjong sunt simplificate. Corectate contrastul și semantica de navigare.
 
 ## Mărci și nume comerciale
 
 Numele „Rummikub", „Phase 10", „Canasta", „Okey" etc. sunt nume comerciale sau mărci ale deținătorilor lor; aici sunt folosite descriptiv, ca nume ale unor variante de joc, fără afilierea sau aprobarea acestora. Aplicația nu include materiale grafice sau reguli oficiale ale produselor comerciale (regulile sunt aproximări simplificate; vezi „Audit").
 
 ## Istoric / Changelog
+
+### 11 octombrie 2026 (runda 6)
+- Adăugat: statistici locale (victorii/înfrângeri pe variantă) cu resetare.
+- Securitate: CSP cu `script-src` pe hash în locul `'unsafe-inline'`.
 
 ### 11 octombrie 2026
 - Reparat: Okey și Rummikub sunt acum etichetate „(simplificat)” în aplicație, iar textele regulilor nu mai promit funcții neimplementate (rearanjarea mesei, închiderea 14+1, mâna Mahjong 4+1): se indică regula originală și ce este implementat efectiv (aceeași listă ca nota „Implementare simplificată”). Același lucru pentru Carousel Rummy.
