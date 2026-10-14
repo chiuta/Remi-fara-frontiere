@@ -6,7 +6,7 @@ Atlas de rummy cu 19 variante jucabile contra AI, într-un singur fișier HTML.
 
 ![Captura de ecran](screenshot.png)
 
-**Versiune:** 1.0.0 · **Ultima actualizare:** 12 octombrie 2026
+**Versiune:** 1.1.0 · **Ultima actualizare:** 14 octombrie 2026
 
 ## Ce este
 
@@ -56,6 +56,9 @@ CC0 1.0 Universal (domeniu public) — vezi fișierul LICENSE
 Numele „Rummikub", „Phase 10", „Canasta", „Okey" etc. sunt nume comerciale sau mărci ale deținătorilor lor; aici sunt folosite descriptiv, ca nume ale unor variante de joc, fără afilierea sau aprobarea acestora. Aplicația nu include materiale grafice sau reguli oficiale ale produselor comerciale (regulile sunt aproximări simplificate; vezi „Audit").
 
 ## Istoric / Changelog
+
+### 1.1.0 — 2026-10-14
+- Copie de rezervă și etichetare date (fff-kit).
 
 ### 1.0.0 — 2026-10-12
 - Versiunea și data ultimei actualizări sunt afișate în aplicație (sfârșitul Atlasului).
