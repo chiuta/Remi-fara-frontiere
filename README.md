@@ -36,7 +36,7 @@ Remi fără frontiere (subtitlu în aplicație: „Atlas · 19 variante jucabile
 ## Confidențialitate și rețea
 
 - Singura stocare locală: contorul de victorii/înfrângeri pe variantă în `localStorage` (cheia `remi-ff:stat:v1`), pe dispozitivul tău; fără IndexedDB sau cookie-uri. Aplicația nu face apeluri de rețea (CSP cu `connect-src 'self'`, scriptul permis doar pe bază de hash); fonturile sunt încorporate în fișier.
-- Linkurile „Patreon" și „Coffee" se deschid doar la clic.
+- Linkul „Coffee" se deschide doar la clic.
 - Fără analitice.
 
 ## Rulare locală / offline
