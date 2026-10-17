@@ -45,7 +45,7 @@ Descărcați `index.html` și deschideți-l în browser; funcționează complet 
 
 ## Licență
 
-CC0 1.0 Universal (domeniu public) — vezi fișierul LICENSE
+Licență MIT — vezi fișierul LICENSE
 
 ## Audit
 
@@ -83,4 +83,4 @@ Alexio — Alexandru-Ionuț Chiuță. Contact: alexio@trom.tf. Aplicația menți
 
 ## English summary
 
-A single-file Romanian-language atlas of 19 rummy-family games (Romanian Rummy, Gin Rummy, Canasta, Okey, Rummikub, Phase 10, Mahjong simplified and more), each playable against an AI opponent. No storage and no network requests. CC0 1.0.
+A single-file Romanian-language atlas of 19 rummy-family games (Romanian Rummy, Gin Rummy, Canasta, Okey, Rummikub, Phase 10, Mahjong simplified and more), each playable against an AI opponent. No storage and no network requests. MIT License.
