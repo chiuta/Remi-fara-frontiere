@@ -2,7 +2,9 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 1.1.0 · **Utolsó frissítés:** 2026-10-14
+**Verzió:** 1.2.0 · **Utolsó frissítés:** 2026-10-19
+
+A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
 Römi-atlasz 19, mesterséges intelligencia ellen játszható változattal, egyetlen HTML-fájlban.
 
@@ -12,7 +14,7 @@ Römi-atlasz 19, mesterséges intelligencia ellen játszható változattal, egye
 
 ## Mi ez
 
-A Remi fără frontiere (az alkalmazás alcíme: „Atlasz · 19 játszható változat · Atlantykron · Centrul StrING”) a römi családba tartozó játékok atlasza, amelyben minden változat játszható mesterséges intelligenciával vezérelt ellenfél ellen. A felület román nyelvű, nagy kövekkel és kártyákkal.
+A Remi fără frontiere (az alkalmazás alcíme: „Atlasz · 19 játszható változat · Atlantykron · Centrul StrING”) a römi családba tartozó játékok atlasza, amelyben minden változat játszható mesterséges intelligenciával vezérelt ellenfél ellen. A felület 8 nyelvű (RO, EN, FR, IT, ES, PT, DE, HU), nagy kövekkel és kártyákkal.
 
 ## Funkciók
 

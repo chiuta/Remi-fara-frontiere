@@ -2,7 +2,9 @@
 
 [English](README.md) · [Română](README.ro.md) · **Français** · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version :** 1.1.0 · **Dernière mise à jour :** 2026-10-14
+**Version :** 1.2.0 · **Dernière mise à jour :** 2026-10-19
+
+Langues de l'interface : **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
 Un atlas du rami avec 19 variantes jouables contre une IA, dans un seul fichier HTML.
 
@@ -12,7 +14,7 @@ Un atlas du rami avec 19 variantes jouables contre une IA, dans un seul fichier 
 
 ## Ce que c'est
 
-Remi fără frontiere (sous-titre dans l'application : « Atlas · 19 variantes jouables · Atlantykron · Centrul StrING ») est un atlas des jeux de la famille du rami, dans lequel chaque variante peut être jouée contre un adversaire IA. L'interface est en roumain, avec de grandes tuiles et de grandes cartes.
+Remi fără frontiere (sous-titre dans l'application : « Atlas · 19 variantes jouables · Atlantykron · Centrul StrING ») est un atlas des jeux de la famille du rami, dans lequel chaque variante peut être jouée contre un adversaire IA. L'interface compte 8 langues (RO, EN, FR, IT, ES, PT, DE, HU), avec de grandes tuiles et de grandes cartes.
 
 ## Fonctionnalités
 

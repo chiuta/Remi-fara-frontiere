@@ -2,7 +2,9 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · **Deutsch** · [Magyar](README.hu.md)
 
-**Version:** 1.1.0 · **Zuletzt aktualisiert:** 2026-10-14
+**Version:** 1.2.0 · **Zuletzt aktualisiert:** 2026-10-19
+
+Oberflächensprachen: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
 Ein Rommé-Atlas mit 19 Varianten, die gegen eine KI spielbar sind, in einer einzigen HTML-Datei.
 
@@ -12,7 +14,7 @@ Ein Rommé-Atlas mit 19 Varianten, die gegen eine KI spielbar sind, in einer ein
 
 ## Was es ist
 
-Remi fără frontiere (Untertitel in der App: „Atlas · 19 spielbare Varianten · Atlantykron · Centrul StrING“) ist ein Atlas der Spiele aus der Rommé-Familie, in dem jede Variante gegen einen KI-Gegner gespielt werden kann. Die Oberfläche ist auf Rumänisch, mit großen Steinen und Karten.
+Remi fără frontiere (Untertitel in der App: „Atlas · 19 spielbare Varianten · Atlantykron · Centrul StrING“) ist ein Atlas der Spiele aus der Rommé-Familie, in dem jede Variante gegen einen KI-Gegner gespielt werden kann. Die Oberfläche hat 8 Sprachen (RO, EN, FR, IT, ES, PT, DE, HU), mit großen Steinen und Karten.
 
 ## Funktionen
 

@@ -2,7 +2,9 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · **Italiano** · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versione:** 1.1.0 · **Ultimo aggiornamento:** 2026-10-14
+**Versione:** 1.2.0 · **Ultimo aggiornamento:** 2026-10-19
+
+Lingue dell'interfaccia: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
 Un atlante del ramino con 19 varianti giocabili contro un'IA, in un unico file HTML.
 
@@ -12,7 +14,7 @@ Un atlante del ramino con 19 varianti giocabili contro un'IA, in un unico file H
 
 ## Che cos'è
 
-Remi fără frontiere (sottotitolo nell'app: «Atlante · 19 varianti giocabili · Atlantykron · Centrul StrING») è un atlante dei giochi della famiglia del ramino, in cui ogni variante può essere giocata contro un avversario IA. L'interfaccia è in rumeno, con tessere e carte grandi.
+Remi fără frontiere (sottotitolo nell'app: «Atlante · 19 varianti giocabili · Atlantykron · Centrul StrING») è un atlante dei giochi della famiglia del ramino, in cui ogni variante può essere giocata contro un avversario IA. L'interfaccia ha 8 lingue (RO, EN, FR, IT, ES, PT, DE, HU), con tessere e carte grandi.
 
 ## Funzioni
 

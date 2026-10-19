@@ -2,7 +2,9 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 1.1.0 · **Last updated:** 2026-10-14
+**Version:** 1.2.0 · **Last updated:** 2026-10-19
+
+Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
 An atlas of rummy with 19 variants playable against an AI, in a single HTML file.
 
@@ -12,7 +14,7 @@ An atlas of rummy with 19 variants playable against an AI, in a single HTML file
 
 ## What it is
 
-Remi fără frontiere (subtitle in the app: "Atlas · 19 playable variants · Atlantykron · Centrul StrING") is an atlas of games from the rummy family, in which every variant can be played against an AI opponent. The interface is in Romanian, with large tiles and cards.
+Remi fără frontiere (subtitle in the app: "Atlas · 19 playable variants · Atlantykron · Centrul StrING") is an atlas of games from the rummy family, in which every variant can be played against an AI opponent. The interface has 8 languages (RO, EN, FR, IT, ES, PT, DE, HU), with large tiles and cards.
 
 ## Features
 
