@@ -10,7 +10,7 @@ Un atlante del ramino con 19 varianti giocabili contro un'IA, in un unico file H
 
 **Online:** https://chiuta.github.io/Remi-fara-frontiere/
 
-![Schermata](screenshot.png)
+![Schermata](screenshot.it.png)
 
 ## Che cos'è
 

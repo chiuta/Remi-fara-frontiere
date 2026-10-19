@@ -10,7 +10,7 @@ Ein Rommé-Atlas mit 19 Varianten, die gegen eine KI spielbar sind, in einer ein
 
 **Online:** https://chiuta.github.io/Remi-fara-frontiere/
 
-![Screenshot](screenshot.png)
+![Screenshot](screenshot.de.png)
 
 ## Was es ist
 

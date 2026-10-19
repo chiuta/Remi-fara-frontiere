@@ -10,7 +10,7 @@ Römi-atlasz 19, mesterséges intelligencia ellen játszható változattal, egye
 
 **Élő verzió:** https://chiuta.github.io/Remi-fara-frontiere/
 
-![Képernyőkép](screenshot.png)
+![Képernyőkép](screenshot.hu.png)
 
 ## Mi ez
 

@@ -10,7 +10,7 @@ Um atlas do rummy com 19 variantes jogáveis contra uma IA, num único ficheiro 
 
 **Online:** https://chiuta.github.io/Remi-fara-frontiere/
 
-![Captura de ecrã](screenshot.png)
+![Captura de ecrã](screenshot.pt.png)
 
 ## O que é
 

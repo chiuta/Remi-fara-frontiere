@@ -10,7 +10,7 @@ Atlas de rummy cu 19 variante jucabile contra AI, într-un singur fișier HTML.
 
 **Live:** https://chiuta.github.io/Remi-fara-frontiere/
 
-![Captura de ecran](screenshot.png)
+![Captura de ecran](screenshot.ro.png)
 
 ## Ce este
 

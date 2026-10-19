@@ -10,7 +10,7 @@ Un atlas du rami avec 19 variantes jouables contre une IA, dans un seul fichier 
 
 **En ligne :** https://chiuta.github.io/Remi-fara-frontiere/
 
-![Capture d'écran](screenshot.png)
+![Capture d'écran](screenshot.fr.png)
 
 ## Ce que c'est
 
