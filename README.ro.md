@@ -85,6 +85,6 @@ Numele „Rummikub", „Phase 10", „Canasta", „Okey" etc. sunt nume comercia
 
 Alexio — Alexandru-Ionuț Chiuță. Contact: alexio@trom.tf. Aplicația menționează Atlantykron și Centrul StrING în subtitlu.
 
-## English summary
+## Rezumat
 
-A single-file Romanian-language atlas of 19 rummy-family games (Romanian Rummy, Gin Rummy, Canasta, Okey, Rummikub, Phase 10, Mahjong simplified and more), each playable against an AI opponent. No storage and no network requests. MIT License.
+Un atlas într-un singur fișier, în limba română, cu 19 jocuri din familia remi (Remi românesc, Gin Rummy, Canasta, Okey, Rummikub, Phase 10, Mahjong simplificat și altele), fiecare jucabil împotriva unui adversar AI. Fără stocare și fără cereri de rețea. Licență MIT.
