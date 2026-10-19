@@ -10,9 +10,11 @@
     "serviceWorker",
     "localStorage"
   ],
-  "storageKeys": [],
-  "sizeBytes": 426889,
-  "sha256": "326f3997730b12a191c23a7d6bb7e76856ffed37bac28ca7f14e77ef89eef916",
+  "storageKeys": [
+    "remi-ff:stat:v1"
+  ],
+  "sizeBytes": 427542,
+  "sha256": "3edd581c05be0083a4ed54b5c3e625af4aa5f5e1c322334c1317ee14c4474e48",
   "csp": {
     "present": true,
     "directives": {
@@ -47,7 +49,7 @@
     ]
   },
   "kit": {
-    "version": "1.0.0",
+    "version": "1.1.1",
     "modules": [
       "core",
       "label",
