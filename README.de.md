@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · **Deutsch** · [Magyar](README.hu.md)
 
-**Version:** 1.2.4 · **Zuletzt aktualisiert:** 2026-10-22
+**Version:** 1.2.5 · **Zuletzt aktualisiert:** 2026-10-22
 
 Oberflächensprachen: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -60,6 +60,10 @@ MIT-Lizenz — siehe Datei LICENSE
 Die Namen „Rummikub“, „Phase 10“, „Canasta“, „Okey“ usw. sind Handelsnamen oder Marken ihrer Inhaber; hier werden sie beschreibend verwendet, als Namen von Spielvarianten, ohne Zugehörigkeit zu oder Billigung durch diese. Die App enthält keine Grafikmaterialien und keine offiziellen Regeln kommerzieller Produkte (die Regeln sind vereinfachte Annäherungen; siehe „Audit“).
 
 ## Verlauf / Changelog
+
+### 1.2.5 — 2026-10-22
+
+fff-kit 1.1.4: Touch-Ziele und Mindestschriftgröße.
 
 ### 1.2.4 — 2026-10-22
 - fff-kit 1.1.2: PBKDF2 mit 600.000 Iterationen, Schutz vor Clickjacking

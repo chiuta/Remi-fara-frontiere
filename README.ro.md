@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 1.2.4 · **Ultima actualizare:** 2026-10-22
+**Versiune:** 1.2.5 · **Ultima actualizare:** 2026-10-22
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -60,6 +60,10 @@ Licență MIT — vezi fișierul LICENSE
 Numele „Rummikub", „Phase 10", „Canasta", „Okey" etc. sunt nume comerciale sau mărci ale deținătorilor lor; aici sunt folosite descriptiv, ca nume ale unor variante de joc, fără afilierea sau aprobarea acestora. Aplicația nu include materiale grafice sau reguli oficiale ale produselor comerciale (regulile sunt aproximări simplificate; vezi „Audit").
 
 ## Istoric / Changelog
+
+### 1.2.5 — 2026-10-22
+
+fff-kit 1.1.4: ținte tactile și text minim.
 
 ### 1.2.4 — 2026-10-22
 - fff-kit 1.1.2: PBKDF2 600 000 iterații, protecție anti-clickjacking
