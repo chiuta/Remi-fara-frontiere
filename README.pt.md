@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · **Português** · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versão:** 1.2.6 · **Última atualização:** 2026-10-23
+**Versão:** 1.2.7 · **Última atualização:** 2026-10-23
 
 Idiomas da interface: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -60,6 +60,10 @@ Licença MIT — ver o ficheiro LICENSE
 Os nomes «Rummikub», «Phase 10», «Canasta», «Okey», etc. são nomes comerciais ou marcas dos seus titulares; aqui são usados de forma descritiva, como nomes de variantes de jogo, sem afiliação ou aprovação por parte destes. A aplicação não inclui materiais gráficos nem regras oficiais de produtos comerciais (as regras são aproximações simplificadas; ver «Auditoria»).
 
 ## Histórico / Changelog
+
+### 1.2.7 — 2026-10-23
+
+- Os diálogos nativos `confirm()` foram substituídos por `FFF.dialog` (acessível, traduzido; kit 1.2.0); o comportamento não muda.
 
 ### 1.2.5 — 2026-10-22
 
