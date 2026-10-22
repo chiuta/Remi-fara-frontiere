@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · **Português** · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versão:** 1.2.1 · **Última atualização:** 2026-10-19
+**Versão:** 1.2.3 · **Última atualização:** 2026-10-22
 
 Idiomas da interface: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -60,6 +60,10 @@ Licença MIT — ver o ficheiro LICENSE
 Os nomes «Rummikub», «Phase 10», «Canasta», «Okey», etc. são nomes comerciais ou marcas dos seus titulares; aqui são usados de forma descritiva, como nomes de variantes de jogo, sem afiliação ou aprovação por parte destes. A aplicação não inclui materiais gráficos nem regras oficiais de produtos comerciais (as regras são aproximações simplificadas; ver «Auditoria»).
 
 ## Histórico / Changelog
+
+### 1.2.3 — 2026-10-22
+
+melhorias para telemóvel e acessibilidade: texto de pelo menos 12 px e áreas táteis de pelo menos 24 px. repor as estatísticas pede confirmação na caixa de diálogo integrada do kit (traduzida em 8 idiomas) em vez do `confirm()` bloqueante; foco de teclado visível; teste `tests/r9-confirm.test.mjs`.
 
 ### 1.1.0 — 2026-10-14
 - Cópia de segurança e etiquetagem de dados (fff-kit).

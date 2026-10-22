@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 1.2.1 · **Utolsó frissítés:** 2026-10-19
+**Verzió:** 1.2.3 · **Utolsó frissítés:** 2026-10-22
 
 A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -60,6 +60,10 @@ MIT licenc — lásd a LICENSE fájlt
 A „Rummikub”, „Phase 10”, „Canasta”, „Okey” stb. nevek tulajdonosaik kereskedelmi nevei vagy védjegyei; itt leíró jelleggel, játékváltozatok neveként szerepelnek, azok hovatartozása vagy jóváhagyása nélkül. Az alkalmazás nem tartalmaz kereskedelmi termékek grafikai anyagait vagy hivatalos szabályait (a szabályok egyszerűsített közelítések; lásd: „Audit”).
 
 ## Előzmények / Changelog
+
+### 1.2.3 — 2026-10-22
+
+mobil és kisegítő finomítások: legalább 12 px-es szöveg és legalább 24 px-es érintési felületek. a statisztikák visszaállítása a kit soron belüli párbeszédablakában (8 nyelvre lefordítva) kér megerősítést a blokkoló `confirm()` helyett; látható billentyűzetfókusz; teszt: `tests/r9-confirm.test.mjs`.
 
 ### 1.1.0 — 2026-10-14
 - Adatmentés és adatcímkézés (fff-kit).
