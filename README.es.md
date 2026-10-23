@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · **Español** · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versión:** 1.2.7 · **Última actualización:** 2026-10-23
+**Versión:** 1.2.9 · **Última actualización:** 2026-10-23
 
 Idiomas de la interfaz: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -60,6 +60,14 @@ Licencia MIT — consulta el archivo LICENSE
 Los nombres «Rummikub», «Phase 10», «Canasta», «Okey», etc. son nombres comerciales o marcas de sus titulares; aquí se usan de forma descriptiva, como nombres de variantes de juego, sin afiliación ni aprobación de estos. La aplicación no incluye materiales gráficos ni reglas oficiales de productos comerciales (las reglas son aproximaciones simplificadas; véase «Auditoría»).
 
 ## Historial / Changelog
+
+### 1.2.9 — 2026-10-23
+
+- Objetivos táctiles de al menos 44 px en dispositivos táctiles (`pointer:coarse`); el escritorio no cambia.
+
+### 1.2.8 — 2026-10-23
+
+- CSP reforzada: se quitó `blob:` de `script-src` y `worker-src` (la app no usa Worker ni scripts desde `blob:`).
 
 ### 1.2.7 — 2026-10-23
 
