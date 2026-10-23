@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · **Français** · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version :** 1.2.8 · **Dernière mise à jour :** 2026-10-23
+**Version :** 1.2.9 · **Dernière mise à jour :** 2026-10-23
 
 Langues de l'interface : **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -60,6 +60,10 @@ Licence MIT — voir le fichier LICENSE
 Les noms « Rummikub », « Phase 10 », « Canasta », « Okey », etc. sont des noms commerciaux ou des marques de leurs titulaires ; ils sont utilisés ici de façon descriptive, comme noms de variantes de jeu, sans affiliation ni approbation de leur part. L'application n'inclut ni matériel graphique ni règles officielles de produits commerciaux (les règles sont des approximations simplifiées ; voir « Audit »).
 
 ## Historique / Changelog
+
+### 1.2.9 — 2026-10-23
+
+- Cibles tactiles d’au moins 44 px sur les appareils tactiles (`pointer:coarse`) ; le bureau reste inchangé.
 
 ### 1.2.8 — 2026-10-23
 

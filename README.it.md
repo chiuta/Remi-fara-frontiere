@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · **Italiano** · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versione:** 1.2.8 · **Ultimo aggiornamento:** 2026-10-23
+**Versione:** 1.2.9 · **Ultimo aggiornamento:** 2026-10-23
 
 Lingue dell'interfaccia: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -60,6 +60,10 @@ Licenza MIT — vedi il file LICENSE
 I nomi «Rummikub», «Phase 10», «Canasta», «Okey» ecc. sono nomi commerciali o marchi dei rispettivi titolari; qui sono usati in modo descrittivo, come nomi di varianti di gioco, senza affiliazione o approvazione da parte loro. L'app non include materiali grafici né regole ufficiali di prodotti commerciali (le regole sono approssimazioni semplificate; vedi «Audit»).
 
 ## Cronologia / Changelog
+
+### 1.2.9 — 2026-10-23
+
+- Bersagli touch di almeno 44 px sui dispositivi touch (`pointer:coarse`); il desktop resta invariato.
 
 ### 1.2.8 — 2026-10-23
 
