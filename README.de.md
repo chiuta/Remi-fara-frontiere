@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · **Deutsch** · [Magyar](README.hu.md)
 
-**Version:** 1.2.7 · **Zuletzt aktualisiert:** 2026-10-23
+**Version:** 1.2.8 · **Zuletzt aktualisiert:** 2026-10-23
 
 Oberflächensprachen: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -60,6 +60,10 @@ MIT-Lizenz — siehe Datei LICENSE
 Die Namen „Rummikub“, „Phase 10“, „Canasta“, „Okey“ usw. sind Handelsnamen oder Marken ihrer Inhaber; hier werden sie beschreibend verwendet, als Namen von Spielvarianten, ohne Zugehörigkeit zu oder Billigung durch diese. Die App enthält keine Grafikmaterialien und keine offiziellen Regeln kommerzieller Produkte (die Regeln sind vereinfachte Annäherungen; siehe „Audit“).
 
 ## Verlauf / Changelog
+
+### 1.2.8 — 2026-10-23
+
+- CSP gehärtet: `blob:` aus `script-src` und `worker-src` entfernt (die App nutzt weder Worker noch Skripte aus `blob:`).
 
 ### 1.2.7 — 2026-10-23
 
