@@ -1,0 +1,44 @@
+// Test v2 (Remi fără frontiere): reguli configurabile (mână, jokeri, pachete, intrare), salvate local, și cod de împărțire reproductibil.
+// Rulare: node tests/rules-config.test.mjs
+import {createRequire} from 'module';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+const require = createRequire(process.env.PW_ROOT || import.meta.url);
+const {chromium} = require('playwright');
+const HERE = path.dirname(fileURLToPath(import.meta.url));
+let ok = 0, bad = 0;
+const t = (n, c, x) => { if (c) { ok++; console.log('  ok  ' + n); } else { bad++; console.log('  FAIL ' + n + (x !== undefined ? ' :: ' + JSON.stringify(x) : '')); } };
+const b = await chromium.launch({executablePath: process.env.CHROMIUM_PATH || undefined, args: ['--no-sandbox']});
+const ctx = await b.newContext({viewport: {width: 1000, height: 900}, locale: 'en-US'});
+await ctx.route(/^https?:/, (r) => r.abort());
+const p = await ctx.newPage(); const errs = []; let native = 0;
+p.on('pageerror', (e) => errs.push(e.message)); p.on('dialog', (d) => { native++; d.dismiss(); });
+await p.goto('file://' + path.join(HERE, '..', 'index.html')); await p.waitForTimeout(1200);
+const hand = () => p.locator('#pHandEl > *').count();
+const handTxt = () => p.locator('#pHandEl').innerText();
+await p.click('.tab[data-tab="play"]'); await p.locator('.gsel-btn').first().click(); await p.waitForTimeout(500);
+t('implicit: 14 cărți în Remi', (await hand()) === 14, await hand());
+await p.click('#btnRules');
+t('dialog reguli deschis', await p.locator('#rulesModal:not(.hidden)').count() === 1);
+t('câmpuri: mână, jokeri, pachete, intrare', await p.locator('#rlFields input[type=number]').count() === 4);
+await p.fill('#rl-hand', '9'); await p.fill('#rl-seed', 'ABC');
+await p.click('#btnRlApply'); await p.waitForTimeout(400);
+t('mână de 9 cărți după aplicare', (await hand()) === 9, await hand());
+t('etichetă reguli personalizate', /custom rules/.test(await p.locator('#gameName').innerText()));
+const a1 = await handTxt();
+await p.click('#btnRules'); await p.fill('#rl-seed', 'ABC'); await p.click('#btnRlApply'); await p.waitForTimeout(400);
+t('același cod = aceeași împărțire', (await handTxt()) === a1);
+await p.click('#btnRules'); await p.fill('#rl-seed', 'XYZ'); await p.click('#btnRlApply'); await p.waitForTimeout(400);
+t('alt cod = altă împărțire', (await handTxt()) !== a1);
+t('salvat local', await p.evaluate(() => /"hand":9/.test(localStorage.getItem('remi-ff:rules:v1') || '')));
+await p.reload(); await p.waitForTimeout(1000);
+await p.click('.tab[data-tab="play"]'); await p.locator('.gsel-btn').first().click(); await p.waitForTimeout(500);
+t('persistă după reîncărcare', (await hand()) === 9, await hand());
+await p.click('#btnRules'); await p.fill('#rl-hand', '99'); await p.click('#btnRlApply'); await p.waitForTimeout(400);
+t('valoarea e limitată la maximul sigur (15)', (await hand()) === 15, await hand());
+await p.click('#btnRules'); await p.click('#btnRlReset'); await p.click('#btnRlApply'); await p.waitForTimeout(400);
+t('resetare: din nou 14', (await hand()) === 14, await hand());
+// joc fără jokeri/pachete (Gin): doar mâna
+await p.click('#btnBack'); await p.waitForTimeout(300);
+t('fără alerte native și fără erori', native === 0 && errs.length === 0, {native, errs});
+await b.close(); console.log('\n' + ok + ' reușite, ' + bad + ' eșuate'); process.exit(bad ? 1 : 0);

@@ -2,9 +2,11 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 1.2.10 · **Ultima actualizare:** 2026-10-26
+**Versiune:** 2.0.0 · **Ultima actualizare:** 2026-10-26
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
+
+**Nou în 2.0.0:** buton „⚙ Reguli” în fiecare masă: mărimea mâinii, jokerii, pachetele și punctele de intrare sunt configurabile (în intervale sigure, salvate local), plus un *cod de împărțire* – același cod dă aceeași împărțire pe orice dispozitiv, ca să jucați aceeași mână în doi, la distanță. Nu este implementat jocul în rețea p2p automat (omis).
 
 Atlas de rummy cu 19 variante jucabile contra AI, într-un singur fișier HTML.
 
