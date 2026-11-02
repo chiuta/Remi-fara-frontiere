@@ -15,8 +15,8 @@
     "remi-ff:rules:v1",
     "remi-ff:stat:v1"
   ],
-  "sizeBytes": 598904,
-  "sha256": "59815e0aae0364d4ab5a1785e6ce9e7a6ed5c85667e85aba029719db1566afff",
+  "sizeBytes": 739338,
+  "sha256": "9ec6221ae42f69708c6039ce7a5864e27cdcb83ec9d22e2fdd13de8ca013e641",
   "csp": {
     "present": true,
     "directives": {
@@ -58,7 +58,11 @@
       "store",
       "dialog",
       "label",
-      "bundle"
+      "bundle",
+      "qr",
+      "p2p",
+      "sync",
+      "history"
     ]
   },
   "kit": {
@@ -68,7 +72,11 @@
       "store",
       "dialog",
       "label",
-      "bundle"
+      "bundle",
+      "qr",
+      "p2p",
+      "sync",
+      "history"
     ]
   },
   "selfSerializing": false
