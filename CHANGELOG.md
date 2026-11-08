@@ -1,5 +1,9 @@
 # Jurnal de modificări
 
+## 2.0.5 — 2026-11-08
+
+- „Nu e meld valid”: mesaje diferențiate (sub 3 cărți, doar jokeri, culoare repetată în set, peste 4 cărți, valoare repetată în secvență, goluri, cărți nepotrivite), 8 limbi; test `meld-motive`.
+
 ## 2.0.2 — 2026-11-03
 
 Turneu și clasament Elo local (motor comun de jocuri), rezultate notate de mână
