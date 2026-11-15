@@ -12,6 +12,7 @@
     "serviceWorker",
     "localStorage",
     "Web Crypto",
+    "WebGL",
     "BroadcastChannel"
   ],
   "storageKeys": [
@@ -19,8 +20,8 @@
     "remi-ff:rules:v1",
     "remi-ff:stat:v1"
   ],
-  "sizeBytes": 919645,
-  "sha256": "4fff38b01c781268652b5a5330ed724bdb5f334c0487e91a11799bb701fe33dd",
+  "sizeBytes": 971674,
+  "sha256": "4f43504af6d9e78678bd6f9fe9026309033ac4c9f7767512c71e22125c0881f3",
   "csp": {
     "present": true,
     "directives": {
@@ -33,7 +34,7 @@
       "base-uri": "'self'",
       "form-action": "'self'",
       "worker-src": "'self'",
-      "script-src": "'self' sha256×7",
+      "script-src": "'self' sha256×8",
       "connect-src": "'self'",
       "manifest-src": "'self'"
     },
