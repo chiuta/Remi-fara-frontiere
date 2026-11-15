@@ -1,5 +1,9 @@
 # Jurnal de modificări
 
+## 2.0.10 — 2026-11-15
+
+- Nou: texturi fractale hiper-detaliate (fff-texturi 1.1.2) — fundalul și suprafețele mari (carduri, panouri, antete, butoane; filele și dialogurile ascunse la încărcare, când se deschid) primesc un material generat local (WebGL2, fără rețea și fără imagini), care se repetă fără cusătură; culorile aplicației rămân ale ei. Se oprește din dialogul „Transparență” sau cu `?notex=1`.
+
 ## 2.0.5 — 2026-11-08
 
 - „Nu e meld valid”: mesaje diferențiate (sub 3 cărți, doar jokeri, culoare repetată în set, peste 4 cărți, valoare repetată în secvență, goluri, cărți nepotrivite), 8 limbi; test `meld-motive`.
