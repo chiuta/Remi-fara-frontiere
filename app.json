@@ -2,7 +2,7 @@
   "schema": 1,
   "slug": "remi-fara-frontiere",
   "name": "Remi fără frontiere — 19 variante jucabile · Atlantykron",
-  "version": "2.0.10",
+  "version": "2.1.0",
   "updated": "2026-11-15",
   "description": "Atlas Rummy: 19 variante jucabile (Remi Românesc, Gin Rummy, Canasta, Okey, Mahjong, Phase 10 și altele). Piese mari, 100% offline. Atlantykron · Centrul StrING.",
   "egress": [],
@@ -20,8 +20,8 @@
     "remi-ff:rules:v1",
     "remi-ff:stat:v1"
   ],
-  "sizeBytes": 976597,
-  "sha256": "3f635f06330d285bd1fd18550229e57b3f3970aaaa1cab7102098ed68e07a422",
+  "sizeBytes": 1014617,
+  "sha256": "6f826deb2b7a9f19692e59dc366c18cd2ddadfd2956eae90f94469005bd8f02f",
   "csp": {
     "present": true,
     "directives": {
@@ -64,6 +64,7 @@
       "dialog",
       "exit",
       "view",
+      "a11y",
       "ux",
       "label",
       "bundle",
@@ -74,13 +75,14 @@
     ]
   },
   "kit": {
-    "version": "1.5.0",
+    "version": "1.6.0",
     "modules": [
       "core",
       "store",
       "dialog",
       "exit",
       "view",
+      "a11y",
       "ux",
       "label",
       "bundle",
